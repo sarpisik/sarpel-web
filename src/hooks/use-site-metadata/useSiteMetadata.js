@@ -9,6 +9,10 @@ export const useSiteMetadata = () => {
             title
             description
             email
+            links {
+              to
+              children
+            }
           }
         }
       }

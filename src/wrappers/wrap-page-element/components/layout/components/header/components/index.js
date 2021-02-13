@@ -1,2 +1,1 @@
-export { Logo } from "./Logo"
-export { Toolbar } from "./Toolbar"
+export { Toolbar } from './Toolbar'

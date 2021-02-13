@@ -3,7 +3,13 @@ module.exports = {
     title: 'Sarpel Elektrik',
     description:
       'Sarpel Elektrik "Doğadan Aldığımız Güçle Her Yerdeyiz" sloganıyla yola çıkarak, vizyonu elektrik mühendisliği hizmetlerinin inovatif ve lider kuruluşu olmasıdır',
-    email: 'merhaba@sarpelelektrik.com'
+    email: 'iletisim@sarpelelektrik.com',
+    links: [
+      { to: '/', children: 'ana sayfa' },
+      { to: '/kurumsal', children: 'kurumsal' },
+      { to: '/iletisim', children: 'iletişim' },
+      { to: '/projeler', children: 'projeler' }
+    ]
   },
   plugins: [
     'gatsby-plugin-react-helmet',
