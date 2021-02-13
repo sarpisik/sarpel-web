@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/github",
+            "lambdaFunction": "sarpelGithubLambda",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/github"
+        }
+    ],
+    "resourceName": "sarpelgithub",
+    "apiName": "sarpelgithub",
+    "functionArns": [
+        {
+            "lambdaFunction": "sarpelGithubLambda"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-sarpelweb-dev-193557-authRole",
+        "unAuthRoleName": "amplify-sarpelweb-dev-193557-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "sarpelGithubLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
