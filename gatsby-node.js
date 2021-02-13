@@ -3,6 +3,24 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
+exports.onCreateBabelConfig = ({ actions }) => {
+  // https://material-ui.com/guides/minimizing-bundle-size/
+  actions.setBabelPlugin({
+    name: 'babel-plugin-transform-imports',
+    options: {
+      '@material-ui/core': {
+        transform: '@material-ui/core/esm/${member}',
+        preventFullImport: true
+      },
+      '@material-ui/icons': {
+        // Use "transform: '@material-ui/icons/${member}'," if your bundler does not support ES modules
+        transform: '@material-ui/icons/esm/${member}',
+        preventFullImport: true
+      }
+    }
+  })
+}
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -23,15 +41,15 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then((result) => {
+  `).then(result => {
     if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
+      result.errors.forEach(e => console.error(e.toString()))
       return Promise.reject(result.errors)
     }
 
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach((edge) => {
+    posts.forEach(edge => {
       const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
@@ -41,15 +59,15 @@ exports.createPages = ({ actions, graphql }) => {
         ),
         // additional data can be passed via context
         context: {
-          id,
-        },
+          id
+        }
       })
     })
 
     // Tag pages:
     let tags = []
     // Iterate through each post, putting all found tags into `tags`
-    posts.forEach((edge) => {
+    posts.forEach(edge => {
       if (_.get(edge, `node.frontmatter.tags`)) {
         tags = tags.concat(edge.node.frontmatter.tags)
       }
@@ -58,15 +76,15 @@ exports.createPages = ({ actions, graphql }) => {
     tags = _.uniq(tags)
 
     // Make tag pages
-    tags.forEach((tag) => {
+    tags.forEach(tag => {
       const tagPath = `/tags/${_.kebabCase(tag)}/`
 
       createPage({
         path: tagPath,
         component: path.resolve(`src/templates/tags.js`),
         context: {
-          tag,
-        },
+          tag
+        }
       })
     })
   })
@@ -81,7 +99,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value
     })
   }
 }
