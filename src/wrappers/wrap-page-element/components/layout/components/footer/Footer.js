@@ -1,9 +1,14 @@
-import React from 'react'
-import { Box, Paper } from '@material-ui/core'
+import { LogoAvatar } from '@components/logo-avatar'
+import { default as darkLogo, default as lightLogo } from '@img/logos/logo.svg'
+import Box from '@material-ui/core/Box/Box'
+import Paper from '@material-ui/core/Paper/Paper'
 import { withStyles } from '@material-ui/core/styles'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Copyright, Icons } from './components'
+import { useDarkMode } from '@plugins/gatsby-plugin-dark-mode/DarkModeProvider'
 import { useSiteMetadata } from '@src/hooks/use-site-metadata'
+import React from 'react'
+import { Copyright, Icons } from './components'
+
+const ENUM = { light: lightLogo, dark: darkLogo }
 
 const StyledToolbar = withStyles(theme => {
   const spacing = theme.spacing(5)
@@ -29,11 +34,13 @@ const StyledFooter = withStyles(theme => {
 
 export default function Footer() {
   const data = useSiteMetadata(),
-    { title, email } = data
+    { title, email } = data,
+    { mode } = useDarkMode()
 
   return (
     <StyledFooter component="footer" elevation={4} square>
       <StyledToolbar>
+        <LogoAvatar src={ENUM[mode]} alt={`${data.title} brand logo.`} />
         <Icons email={email} />
         <Copyright name={title} />
       </StyledToolbar>
