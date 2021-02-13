@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: 'Sarpel Elektrik',
     description:
-      'Sarpel Elektrik "Doğadan Aldığımız Güçle Her Yerdeyiz" sloganıyla yola çıkarak, vizyonu elektrik mühendisliği hizmetlerinin inovatif ve lider kuruluşu olmasıdır'
+      'Sarpel Elektrik "Doğadan Aldığımız Güçle Her Yerdeyiz" sloganıyla yola çıkarak, vizyonu elektrik mühendisliği hizmetlerinin inovatif ve lider kuruluşu olmasıdır',
+    email: 'merhaba@sarpelelektrik.com'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -16,13 +17,15 @@ module.exports = {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
+          '@components': 'src/components',
+          '@hooks': 'src/hooks',
+          '@img': 'src/img',
+          '@pages': 'src/pages',
           '@plugins': 'plugins',
           '@src': 'src',
-          '@assets': 'src/assets',
-          '@components': 'src/components',
-          '@pages': 'src/pages',
           '@templates': 'src/templates',
-          '@views': 'src/views'
+          '@views': 'src/views',
+          '@wrappers': 'src/wrappers'
         },
         extensions: ['js']
       }

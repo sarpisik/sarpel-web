@@ -2,13 +2,15 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@img/*": ["./src/img/*"],
+      "@pages/*": ["./src/pages/*"],
       "@plugins/*": ["./plugins/*"],
       "@src/*": ["./src/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
       "@templates/*": ["./src/templates/*"],
-      "@views/*": ["./src/views/*"]
+      "@views/*": ["./src/views/*"],
+      "@wrappers/*": ["./src/wrappers/*"]
     }
   },
   "include": ["plugins/**/*", "src/**/*"]
