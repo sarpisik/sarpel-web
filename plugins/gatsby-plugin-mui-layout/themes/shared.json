@@ -1,10 +1,10 @@
 {
   "palette": {
     "primary": {
-      "light": "rgba(162, 255, 255, 1)",
-      "main": "rgba(108, 212, 244, 1)",
-      "dark": "rgba(10, 108, 138, 1)",
-      "contrastText": "#fff"
+      "light": "rgba(242, 203, 5, 1)",
+      "main": "rgba(242, 183, 5, 1)",
+      "dark": "rgba(242, 159, 5, 1)",
+      "contrastText": "#000"
     }
   }
 }
