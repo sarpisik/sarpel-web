@@ -19,5 +19,26 @@
         }
       }
     }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-sarpelweb-prod-222648-authRole",
+      "UnauthRoleArn": "arn:aws:iam::849999570621:role/amplify-sarpelweb-prod-222648-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::849999570621:role/amplify-sarpelweb-prod-222648-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-sarpelweb-prod-222648-deployment",
+      "UnauthRoleName": "amplify-sarpelweb-prod-222648-unauthRole",
+      "StackName": "amplify-sarpelweb-prod-222648",
+      "StackId": "arn:aws:cloudformation:eu-central-1:849999570621:stack/amplify-sarpelweb-prod-222648/6cc9cef0-6e31-11eb-ad52-06c4bdc49ef0",
+      "AmplifyAppId": "dpb4kd3fctbvw"
+    },
+    "categories": {
+      "function": {
+        "sarpelGithubLambda": {
+          "deploymentBucketName": "amplify-sarpelweb-prod-222648-deployment",
+          "s3Key": "amplify-builds/sarpelGithubLambda-4536766d61764f755059-build.zip"
+        }
+      }
+    }
   }
 }
