@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
-  branch: master
+  name: github
+  repo: sarpisik/sarpel-web
+  branch: main
+  base_url: https://l4oswclvq4.execute-api.eu-central-1.amazonaws.com
+  auth_endpoint: /prod/github/auth
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
