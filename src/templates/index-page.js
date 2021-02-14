@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography'
 export const IndexPageTemplate = props => {
   const {
     whatWeDo,
+    whyUs,
     image,
     title,
     heading,
@@ -16,12 +17,46 @@ export const IndexPageTemplate = props => {
     description,
     intro
   } = props
-  debugger
+
   return (
     <div>
+      {/* What We Do */}
       <Typography variant="h1" color="textPrimary">
         {whatWeDo.title}
       </Typography>
+      {whatWeDo.works.map(work => {
+        const { title, description } = work
+
+        return (
+          <React.Fragment key={title}>
+            <Typography variant="h2" color="textPrimary">
+              {title}
+            </Typography>
+            <Typography variant="body1" color="initial">
+              {description}
+            </Typography>
+          </React.Fragment>
+        )
+      })}
+
+      {/* Why Us */}
+      <Typography variant="h1" color="textPrimary">
+        {whyUs.title}
+      </Typography>
+      {whyUs.reasons.map(reason => {
+        const { title, description, icon } = reason
+
+        return (
+          <React.Fragment key={title}>
+            <Typography variant="h2" color="textPrimary">
+              {title}
+            </Typography>
+            <Typography variant="body1" color="initial">
+              {description}
+            </Typography>
+          </React.Fragment>
+        )
+      })}
       <div
         className="full-width-image margin-top-0"
         style={{
@@ -156,6 +191,18 @@ export const pageQuery = graphql`
       frontmatter {
         whatWeDo {
           title
+          works {
+            description
+            title
+          }
+        }
+        whyUs {
+          title
+          reasons {
+            description
+            title
+            icon
+          }
         }
         title
         image {

@@ -71,6 +71,26 @@ collections:
                   }
                 ]
             }
+          - {
+              label: Neden Biz?,
+              name: whyUs,
+              widget: object,
+              fields:
+                [
+                  { label: Başlık, name: title, widget: string },
+                  {
+                    label: Faktörler,
+                    name: reasons,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Başlık, name: title, widget: string },
+                        { label: Açıklama, name: description, widget: text },
+                        { label: Ikon, name: icon, widget: string }
+                      ]
+                  }
+                ]
+            }
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }
           - { label: Heading, name: heading, widget: string }
