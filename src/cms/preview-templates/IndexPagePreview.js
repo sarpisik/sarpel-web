@@ -9,12 +9,6 @@ const IndexPagePreview = ({ entry, getAsset }) => {
     return (
       <IndexPageTemplate
         banners={data.banners || []}
-        title={data.title}
-        heading={data.heading}
-        subheading={data.subheading}
-        description={data.description}
-        intro={data.intro || { blurbs: [] }}
-        mainpitch={data.mainpitch || {}}
         whatWeDo={
           data.whatWeDo || {
             title: '',
