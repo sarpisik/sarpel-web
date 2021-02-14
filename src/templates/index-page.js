@@ -4,9 +4,11 @@ import React from 'react'
 import BlogRoll from '../components/BlogRoll'
 import Features from '../components/Features'
 import Typography from '@material-ui/core/Typography'
+import Img from 'gatsby-image'
 
 export const IndexPageTemplate = props => {
   const {
+    banners,
     whatWeDo,
     whyUs,
     image,
@@ -20,6 +22,23 @@ export const IndexPageTemplate = props => {
 
   return (
     <div>
+      {/* Banners */}
+      {banners.map(banner => {
+        const { image, text } = banner
+
+        return (
+          <React.Fragment key={text}>
+            <Img
+              style={imageStyle}
+              fluid={image.childImageSharp.fluid}
+              alt={alt}
+            />
+            <Typography variant="caption" color="initial">
+              {text}
+            </Typography>
+          </React.Fragment>
+        )
+      })}
       {/* What We Do */}
       <Typography variant="h1" color="textPrimary">
         {whatWeDo.title}
@@ -189,6 +208,16 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
+        banners {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          text
+        }
         whatWeDo {
           title
           works {

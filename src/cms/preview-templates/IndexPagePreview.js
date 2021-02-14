@@ -8,6 +8,10 @@ const IndexPagePreview = ({ entry, getAsset }) => {
   if (data) {
     return (
       <IndexPageTemplate
+        banners={(data.banners || []).map(banner => ({
+          ...banner,
+          image: getAsset(banner?.image)
+        }))}
         image={getAsset(data.image)}
         title={data.title}
         heading={data.heading}
