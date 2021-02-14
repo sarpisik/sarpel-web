@@ -46,6 +46,7 @@ const AboutPage = ({ data }) => {
     <AboutPageTemplate
       contentComponent={HTMLContent}
       title={post.frontmatter.title}
+      banner={post.frontmatter.banner}
       content={post.html}
     />
   )

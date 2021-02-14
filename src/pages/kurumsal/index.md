@@ -3,8 +3,8 @@ templateKey: about-page
 path: /kurumsal
 title: Sarpel Elektrik İnşaat Taahhüt Sanayi ve Tic. Ltd. Şti.
 banner:
-  - image: /img/about_us.jpg
-    alt: Alttan çekilmiş elektrik direği.
+  image: /img/about_us.jpg
+  alt: Alttan çekilmiş elektrik direği.
 ---
 ## Hakkımızda
 
