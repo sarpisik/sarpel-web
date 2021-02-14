@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: sarpisik/sarpel-web
-  branch: main
+  branch: dev
   base_url: https://l4oswclvq4.execute-api.eu-central-1.amazonaws.com
   auth_endpoint: /prod/github/auth
   commit_messages:
@@ -10,6 +10,9 @@ backend:
     delete: 'Delete {{collection}} “{{slug}}”'
     uploadMedia: '[skip ci] Upload “{{path}}”'
     deleteMedia: '[skip ci] Delete “{{path}}”'
+  # Enable for local development.
+  # Run: npx netlify-cms-proxy-server
+  # local_backend: true
 
 media_folder: static/img
 public_folder: /img
@@ -38,6 +41,7 @@ collections:
         name: "index"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+          - {label: Faaliyet Alanlarımız, name: whatWeDo, widget: object, fields: [{label: Başlık, name: title, widget: string}]}
           - {label: Title, name: title, widget: string}
           - {label: Image, name: image, widget: image}
           - {label: Heading, name: heading, widget: string}

@@ -1,5 +1,7 @@
 ---
 templateKey: index-page
+whatWeDo:
+  title: Faaliyet Alanlarımız
 title: Great coffee with a conscience
 image: /img/home-jumbotron.jpg
 heading: Great coffee with a conscience
