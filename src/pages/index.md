@@ -4,16 +4,16 @@ whatWeDo:
   title: Faaliyet Alanlarımız
   works:
     - title: Alt Yapı İşleri
-      desctiption: >
+      description: >
         Enerji Nakil Hatları, Şalt Sahaları, Transformatörler, Hücre Sistemleri, Enerji Üretimi ve Dağıtım merkezleri gibi işleri alt yapı hizmetleri kapsamında vermekteyiz.
     - title: Üst Yapı İşleri
-      desctiption: >
+      description: >
         Aydınlatma Sistemleri, Dağıtım ve Kablo Kanal Tesisatları, Priz ve Kuvvet Tesisatları, Topraklama, Kompanzasyon gibi birçok işi üst yapı hizmetleri kapsamında vermekteyiz.
     - title: Haberleşme ve Sinyalizasyon
-      desctiption: >
+      description: >
         Anahtar Teslim Proses Otomasyonları, Enerji İzleme ve Yönetim Sistemleri, PLC Tabanlı Otomasyon Sistemleri, İnterkeom Sistemleri gibi alanlarda faaliyet göstermekteyiz.
     - title: Katener ve Elektrifikasyon
-      desctiption: >
+      description: >
         Katener Trafo Merkezleri, Posta Binaları, Direk İnşaatı ve Montajı, Fider İletkeni Çekimi, Katener Montajı, Direk Dikimi gibi birçok hizmeti sunmaktayız.
 title: Great coffee with a conscience
 image: /img/home-jumbotron.jpg
