@@ -1,10 +1,10 @@
+import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
+import Typography from '@material-ui/core/Typography'
 import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 import BlogRoll from '../components/BlogRoll'
 import Features from '../components/Features'
-import Typography from '@material-ui/core/Typography'
-import Img from 'gatsby-image'
 
 export const IndexPageTemplate = props => {
   const {
@@ -23,12 +23,11 @@ export const IndexPageTemplate = props => {
   return (
     <div>
       {/* Banners */}
-      {banners.map(banner => {
-        const { image, text } = banner
-
+      {banners.map(_banner => {
+        const { text, ...banner } = _banner
         return (
           <React.Fragment key={text}>
-            <Img fluid={image.childImageSharp.fluid} alt={''} />
+            <PreviewCompatibleImage imageInfo={banner} />
             <Typography variant="caption" color="initial">
               {text}
             </Typography>
