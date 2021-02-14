@@ -36,7 +36,7 @@
       "function": {
         "sarpelGithubLambda": {
           "deploymentBucketName": "amplify-sarpelweb-prod-222648-deployment",
-          "s3Key": "amplify-builds/sarpelGithubLambda-4536766d61764f755059-build.zip"
+          "s3Key": "amplify-builds/sarpelGithubLambda-48466238646f6839792b-build.zip"
         }
       }
     }
