@@ -28,11 +28,7 @@ export const IndexPageTemplate = props => {
 
         return (
           <React.Fragment key={text}>
-            <Img
-              style={imageStyle}
-              fluid={image.childImageSharp.fluid}
-              alt={alt}
-            />
+            <Img fluid={image.childImageSharp.fluid} alt={''} />
             <Typography variant="caption" color="initial">
               {text}
             </Typography>
@@ -76,54 +72,6 @@ export const IndexPageTemplate = props => {
           </React.Fragment>
         )
       })}
-      <div
-        className="full-width-image margin-top-0"
-        style={{
-          backgroundImage: `url(${
-            !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-          })`,
-          backgroundPosition: `top left`,
-          backgroundAttachment: `fixed`
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            height: '150px',
-            lineHeight: '1',
-            justifyContent: 'space-around',
-            alignItems: 'left',
-            flexDirection: 'column'
-          }}
-        >
-          <h1
-            className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-            style={{
-              boxShadow:
-                'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-              backgroundColor: 'rgb(255, 68, 0)',
-              color: 'white',
-              lineHeight: '1',
-              padding: '0.25em'
-            }}
-          >
-            {title}
-          </h1>
-          <h3
-            className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-            style={{
-              boxShadow:
-                'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-              backgroundColor: 'rgb(255, 68, 0)',
-              color: 'white',
-              lineHeight: '1',
-              padding: '0.25em'
-            }}
-          >
-            {subheading}
-          </h3>
-        </div>
-      </div>
       <section className="section section--gradient">
         <div className="container">
           <div className="section">
@@ -230,7 +178,6 @@ export const pageQuery = graphql`
           reasons {
             description
             title
-            icon
           }
         }
         title
