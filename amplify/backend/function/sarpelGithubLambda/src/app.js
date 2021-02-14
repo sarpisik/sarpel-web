@@ -28,16 +28,6 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.get('/github', function (req, res) {
-  // Add your code here
-  res.json({ success: 'get call succeed!', url: req.url })
-})
-
-app.get('/github/*', function (req, res) {
-  // Add your code here
-  res.json({ success: 'get call succeed!', url: req.url })
-})
-
 // NetlifyCMS doesn't use this root page. It's only for dev purposes
 app.get('/github', (req, res) => {
   res.send(`<a href="${authUrl}">Login with Github</a>`)
