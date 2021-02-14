@@ -4,6 +4,10 @@ module.exports = {
     description:
       'Sarpel Elektrik "Doğadan Aldığımız Güçle Her Yerdeyiz" sloganıyla yola çıkarak, vizyonu elektrik mühendisliği hizmetlerinin inovatif ve lider kuruluşu olmasıdır',
     email: 'iletisim@sarpelelektrik.com',
+    address: process.env.ADDRESS || 'Test address.',
+    phones: (process.env.PHONES || '+12 592 287 18 09,+12 592 333 44 55').split(
+      ','
+    ),
     links: [
       { to: '/', children: 'ana sayfa' },
       { to: '/kurumsal', children: 'kurumsal' },
