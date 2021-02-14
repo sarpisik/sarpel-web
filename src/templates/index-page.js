@@ -1,10 +1,8 @@
 import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
 import Typography from '@material-ui/core/Typography'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-import BlogRoll from '../components/BlogRoll'
-import Features from '../components/Features'
 
 export const IndexPageTemplate = props => {
   const { banners, whatWeDo, whyUs } = props
