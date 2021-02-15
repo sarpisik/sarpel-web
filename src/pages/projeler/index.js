@@ -1,5 +1,5 @@
 import React from 'react'
-import BlogRoll from '../../components/BlogRoll'
+import Project from '../../components/Project'
 
 export default class BlogIndexPage extends React.Component {
   render() {
@@ -26,7 +26,7 @@ export default class BlogIndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <BlogRoll />
+              <Project />
             </div>
           </div>
         </section>

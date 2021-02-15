@@ -3,11 +3,10 @@ import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 
-class BlogRoll extends React.Component {
+class Project extends React.Component {
   render() {
     const { data } = this.props
     const { edges: projects } = data.allMarkdownRemark
-    debugger
 
     return (
       <div className="columns is-multiline">
@@ -59,7 +58,7 @@ class BlogRoll extends React.Component {
   }
 }
 
-BlogRoll.propTypes = {
+Project.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array
@@ -100,6 +99,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <BlogRoll data={data} count={count} />}
+    render={(data, count) => <Project data={data} count={count} />}
   />
 )
