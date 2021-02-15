@@ -6,47 +6,48 @@ import PreviewCompatibleImage from './PreviewCompatibleImage'
 class BlogRoll extends React.Component {
   render() {
     const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { edges: projects } = data.allMarkdownRemark
+    debugger
 
     return (
       <div className="columns is-multiline">
-        {posts &&
-          posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
+        {projects &&
+          projects.map(({ node: project }) => (
+            <div className="is-parent column is-6" key={project.id}>
               <article
                 className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
+                  project.frontmatter.featuredpost ? 'is-featured' : ''
                 }`}
               >
                 <header>
-                  {post.frontmatter.featuredimage ? (
+                  {project.frontmatter.featuredimage ? (
                     <div className="featured-thumbnail">
                       <PreviewCompatibleImage
                         imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                          image: project.frontmatter.featuredimage,
+                          alt: `featured image thumbnail for project ${project.frontmatter.title}`
                         }}
                       />
                     </div>
                   ) : null}
-                  <p className="post-meta">
+                  <p className="project-meta">
                     <Link
                       className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
+                      to={project.fields.slug}
                     >
-                      {post.frontmatter.title}
+                      {project.frontmatter.title}
                     </Link>
                     <span> &bull; </span>
                     <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
+                      {project.frontmatter.date}
                     </span>
                   </p>
                 </header>
                 <p>
-                  {post.excerpt}
+                  {project.excerpt}
                   <br />
                   <br />
-                  <Link className="button" to={post.fields.slug}>
+                  <Link className="button" to={project.fields.slug}>
                     Keep Reading →
                   </Link>
                 </p>
@@ -61,9 +62,9 @@ class BlogRoll extends React.Component {
 BlogRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
+      edges: PropTypes.array
+    })
+  })
 }
 
 export default () => (
@@ -72,7 +73,7 @@ export default () => (
       query BlogRollQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "project-page" } } }
         ) {
           edges {
             node {

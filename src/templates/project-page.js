@@ -5,7 +5,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import Content, { HTMLContent } from '../components/Content'
 
-export const BlogPostTemplate = ({
+export const ProjectTemplate = ({
   content,
   contentComponent,
   description,
@@ -45,7 +45,7 @@ export const BlogPostTemplate = ({
   )
 }
 
-BlogPostTemplate.propTypes = {
+ProjectTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -53,39 +53,39 @@ BlogPostTemplate.propTypes = {
   helmet: PropTypes.object
 }
 
-const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+const Project = ({ data }) => {
+  const { markdownRemark: project } = data
 
   return (
-    <BlogPostTemplate
-      content={post.html}
+    <ProjectTemplate
+      content={project.html}
       contentComponent={HTMLContent}
-      description={post.frontmatter.description}
+      description={project.frontmatter.description}
       helmet={
         <Helmet titleTemplate="%s | Blog">
-          <title>{`${post.frontmatter.title}`}</title>
+          <title>{`${project.frontmatter.title}`}</title>
           <meta
             name="description"
-            content={`${post.frontmatter.description}`}
+            content={`${project.frontmatter.description}`}
           />
         </Helmet>
       }
-      tags={post.frontmatter.tags}
-      title={post.frontmatter.title}
+      tags={project.frontmatter.tags}
+      title={project.frontmatter.title}
     />
   )
 }
 
-BlogPost.propTypes = {
+Project.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object
   })
 }
 
-export default BlogPost
+export default Project
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
+  query ProjectByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
