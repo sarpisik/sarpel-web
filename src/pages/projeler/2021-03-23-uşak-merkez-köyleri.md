@@ -8,5 +8,7 @@ description: Banaz, Hasan Köy, Eşme, Saraycık yer altı elektrik nakil hatlar
   bakım ve montajı.
 featuredpost: true
 featuredimage: /img/usak_merkez_yer_alti_kablo.jpeg
+tags:
+  - yeralti
 ---
 Banaz, Hasan Köy, Eşme, Saraycık yer altı elektrik nakil hatlarının bakım ve montajı.
