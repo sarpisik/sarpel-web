@@ -11,6 +11,8 @@ export const ProjectTemplate = ({
   description,
   tags,
   title,
+  status,
+  location,
   helmet
 }) => {
   const PostContent = contentComponent || Content
@@ -24,6 +26,8 @@ export const ProjectTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
+            <h2>{status}</h2>
+            <h3>{location}</h3>
             <p>{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -72,6 +76,8 @@ const Project = ({ data }) => {
       }
       tags={project.frontmatter.tags}
       title={project.frontmatter.title}
+      status={project.frontmatter.status}
+      location={project.frontmatter.location}
     />
   )
 }

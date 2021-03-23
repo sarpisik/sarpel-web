@@ -10,6 +10,8 @@ const ProjectPreview = ({ entry, widgetFor }) => {
       description={entry.getIn(['data', 'description'])}
       // tags={tags && tags.toJS()}
       title={entry.getIn(['data', 'title'])}
+      status={entry.getIn(['data', 'status'])}
+      location={entry.getIn(['data', 'location'])}
     />
   )
 }
