@@ -22,7 +22,9 @@ collections:
     label: 'Projeler'
     folder: 'src/pages/projeler'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug:
+      encoding: "ascii"
+      clean_accents: true
     fields:
       - {
           label: 'Template Key',
