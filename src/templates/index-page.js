@@ -1,4 +1,6 @@
 import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
+import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
@@ -8,7 +10,7 @@ export const IndexPageTemplate = props => {
   const { banners, whatWeDo, whyUs } = props
 
   return (
-    <div>
+    <React.Fragment>
       {/* Banners */}
       {banners.map(_banner => {
         const { text, ...banner } = _banner
@@ -21,44 +23,44 @@ export const IndexPageTemplate = props => {
           </React.Fragment>
         )
       })}
-      {/* What We Do */}
-      <Typography variant="h1" color="textPrimary">
-        {whatWeDo.title}
-      </Typography>
-      {whatWeDo.works.map(work => {
-        const { title, description } = work
+      <Box padding={3}>
+        <Grid container spacing={10}>
+          {/* What We Do */}
+          <Grid item xs={12}>
+            <SectionTitle>{whatWeDo.title}</SectionTitle>
+            {whatWeDo.works.map(work => {
+              const { title, description } = work
 
-        return (
-          <React.Fragment key={title}>
-            <Typography variant="h2" color="textPrimary">
-              {title}
-            </Typography>
-            <Typography variant="body1" color="initial">
-              {description}
-            </Typography>
-          </React.Fragment>
-        )
-      })}
+              return (
+                <React.Fragment key={title}>
+                  <SectionSubTitle>{title}</SectionSubTitle>
+                  <Typography variant="body1" color="initial">
+                    {description}
+                  </Typography>
+                </React.Fragment>
+              )
+            })}
+          </Grid>
 
-      {/* Why Us */}
-      <Typography variant="h1" color="textPrimary">
-        {whyUs.title}
-      </Typography>
-      {whyUs.reasons.map(reason => {
-        const { title, description, icon } = reason
+          <Grid item xs={12}>
+            {/* Why Us */}
+            <SectionTitle>{whyUs.title}</SectionTitle>
+            {whyUs.reasons.map(reason => {
+              const { title, description, icon } = reason
 
-        return (
-          <React.Fragment key={title}>
-            <Typography variant="h2" color="textPrimary">
-              {title}
-            </Typography>
-            <Typography variant="body1" color="initial">
-              {description}
-            </Typography>
-          </React.Fragment>
-        )
-      })}
-    </div>
+              return (
+                <React.Fragment key={title}>
+                  <SectionSubTitle>{title}</SectionSubTitle>
+                  <Typography variant="body1" color="initial">
+                    {description}
+                  </Typography>
+                </React.Fragment>
+              )
+            })}
+          </Grid>
+        </Grid>
+      </Box>
+    </React.Fragment>
   )
 }
 
@@ -123,3 +125,15 @@ export const pageQuery = graphql`
     }
   }
 `
+
+function SectionTitle(props) {
+  return (
+    <Typography {...props} variant="h4" component="h2" color="textPrimary" />
+  )
+}
+
+function SectionSubTitle(props) {
+  return (
+    <Typography {...props} variant="h5" component="h3" color="textPrimary" />
+  )
+}
