@@ -29,10 +29,11 @@ export const IndexPageTemplate = props => {
           <Grid item xs={12}>
             <SectionTitle>{whatWeDo.title}</SectionTitle>
             {whatWeDo.works.map(work => {
-              const { title, description } = work
+              const { title, description, ...image } = work
 
               return (
                 <React.Fragment key={title}>
+                  <PreviewCompatibleImage imageInfo={image} />
                   <SectionSubTitle>{title}</SectionSubTitle>
                   <Typography variant="body1" color="initial">
                     {description}
@@ -112,6 +113,13 @@ export const pageQuery = graphql`
           works {
             description
             title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
         whyUs {
