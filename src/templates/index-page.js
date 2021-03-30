@@ -1,4 +1,6 @@
 import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
+import CardWithMedia from '@components/CardWithMedia'
+import TypographyBold from '@components/TypographyBold'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -11,6 +13,8 @@ import GroupIcon from '@material-ui/icons/Group'
 import HowToRegIcon from '@material-ui/icons/HowToReg'
 import TurnedInIcon from '@material-ui/icons/TurnedIn'
 import EcoIcon from '@material-ui/icons/Eco'
+import CardWithHeight from '@components/CardWithHeight'
+import CardContent from '@material-ui/core/CardContent'
 
 const ICONS = {
   star: StarIcon,
@@ -37,44 +41,57 @@ export const IndexPageTemplate = props => {
           </React.Fragment>
         )
       })}
-      <Box padding={3}>
-        <Grid container spacing={10}>
+      <Box padding={5}>
+        <Grid container spacing={5}>
           {/* What We Do */}
-          <Grid item xs={12}>
-            <SectionTitle>{whatWeDo.title}</SectionTitle>
+          <Section title={whatWeDo.title}>
             {whatWeDo.works.map(work => {
               const { title, description, ...image } = work
 
               return (
-                <React.Fragment key={title}>
-                  <PreviewCompatibleImage imageInfo={image} />
-                  <SectionSubTitle>{title}</SectionSubTitle>
-                  <Typography variant="body1" color="initial">
-                    {description}
-                  </Typography>
-                </React.Fragment>
+                <SectionCardContainer key={title}>
+                  <CardWithMedia {...image}>
+                    <SectionSubTitle>{title}</SectionSubTitle>
+                    <Typography variant="body1" color="initial" align="justify">
+                      {description}
+                    </Typography>
+                  </CardWithMedia>
+                </SectionCardContainer>
               )
             })}
-          </Grid>
+          </Section>
 
-          <Grid item xs={12}>
-            {/* Why Us */}
-            <SectionTitle>{whyUs.title}</SectionTitle>
+          {/* Why Us */}
+          <Section title={whyUs.title}>
             {whyUs.reasons.map(reason => {
               const { title, description, icon } = reason,
                 Icon = ICONS[icon]
 
               return (
-                <React.Fragment key={title}>
-                  {Icon && <Icon />}
-                  <SectionSubTitle>{title}</SectionSubTitle>
-                  <Typography variant="body1" color="initial">
-                    {description}
-                  </Typography>
-                </React.Fragment>
+                <SectionCardContainer key={title}>
+                  <CardWithHeight>
+                    {Icon && (
+                      <CardContent>
+                        <Box textAlign="center">
+                          <Icon style={{ fontSize: 80 }} />
+                        </Box>
+                      </CardContent>
+                    )}
+                    <CardContent>
+                      <SectionSubTitle align="center">{title}</SectionSubTitle>
+                      <Typography
+                        variant="body1"
+                        color="initial"
+                        align="center"
+                      >
+                        {description}
+                      </Typography>
+                    </CardContent>
+                  </CardWithHeight>
+                </SectionCardContainer>
               )
             })}
-          </Grid>
+          </Section>
         </Grid>
       </Box>
     </React.Fragment>
@@ -151,14 +168,50 @@ export const pageQuery = graphql`
   }
 `
 
+function Section(props) {
+  const { children, title } = props
+
+  return (
+    <Grid container item>
+      <Grid item xs={12}>
+        <SectionTitle>{title}</SectionTitle>
+      </Grid>
+      <Grid item container spacing={5} justify="center">
+        {children}
+      </Grid>
+    </Grid>
+  )
+}
+
+function SectionCardContainer(props) {
+  return <Grid {...props} item xs={12} sm={6} md={4} />
+}
+
 function SectionTitle(props) {
   return (
-    <Typography {...props} variant="h4" component="h2" color="textPrimary" />
+    <Box marginY={5}>
+      <TitleWithMargin
+        {...props}
+        variant="h4"
+        component="h2"
+        color="textPrimary"
+        align="center"
+      />
+    </Box>
   )
 }
 
 function SectionSubTitle(props) {
   return (
-    <Typography {...props} variant="h5" component="h3" color="textPrimary" />
+    <TitleWithMargin
+      {...props}
+      variant="h5"
+      component="h3"
+      color="textPrimary"
+    />
   )
+}
+
+function TitleWithMargin(props) {
+  return <TypographyBold {...props} gutterBottom />
 }
