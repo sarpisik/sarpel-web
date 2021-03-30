@@ -6,6 +6,20 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import StarIcon from '@material-ui/icons/Star'
+import GroupIcon from '@material-ui/icons/Group'
+import HowToRegIcon from '@material-ui/icons/HowToReg'
+import TurnedInIcon from '@material-ui/icons/TurnedIn'
+import EcoIcon from '@material-ui/icons/Eco'
+
+const ICONS = {
+  star: StarIcon,
+  group: GroupIcon,
+  howToReg: HowToRegIcon,
+  turnedIn: TurnedInIcon,
+  eco: EcoIcon
+}
+
 export const IndexPageTemplate = props => {
   const { banners, whatWeDo, whyUs } = props
 
@@ -47,10 +61,12 @@ export const IndexPageTemplate = props => {
             {/* Why Us */}
             <SectionTitle>{whyUs.title}</SectionTitle>
             {whyUs.reasons.map(reason => {
-              const { title, description, icon } = reason
+              const { title, description, icon } = reason,
+                Icon = ICONS[icon]
 
               return (
                 <React.Fragment key={title}>
+                  {Icon && <Icon />}
                   <SectionSubTitle>{title}</SectionSubTitle>
                   <Typography variant="body1" color="initial">
                     {description}
@@ -127,6 +143,7 @@ export const pageQuery = graphql`
           reasons {
             description
             title
+            icon
           }
         }
       }
