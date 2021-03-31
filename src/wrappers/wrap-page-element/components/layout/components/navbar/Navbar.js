@@ -1,5 +1,4 @@
 import { useTheme } from '@material-ui/core/styles'
-import MuiToolbar from '@material-ui/core/Toolbar'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import React from 'react'
 import { Sidebar, TopBar } from './components'

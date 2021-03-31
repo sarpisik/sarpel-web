@@ -9,10 +9,10 @@ module.exports = {
       ','
     ),
     links: [
-      { to: '/', children: 'ana sayfa' },
-      { to: '/kurumsal', children: 'kurumsal' },
-      { to: '/iletisim', children: 'iletişim' },
-      { to: '/projeler', children: 'projeler' }
+      { to: '/', icon: 'home', children: 'Ana Sayfa' },
+      { to: '/kurumsal', icon: 'business', children: 'Kurumsal' },
+      { to: '/iletisim', icon: 'explore', children: 'İletişim' },
+      { to: '/projeler', icon: 'work', children: 'Projeler' }
     ]
   },
   plugins: [

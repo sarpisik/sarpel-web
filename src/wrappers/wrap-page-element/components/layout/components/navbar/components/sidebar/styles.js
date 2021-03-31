@@ -14,10 +14,12 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+    justifyContent: 'space-between'
   },
   nav: {
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
+    '& > li': { marginBottom: theme.spacing(2) }
   },
   item: {
     display: 'flex',
@@ -27,14 +29,14 @@ export const useStyles = makeStyles(theme => ({
   button: {
     color:
       theme.palette.type === 'light'
-        ? colors.blueGrey[200]
-        : colors.lightBlue[200],
+        ? theme.palette.common.black
+        : theme.palette.common.white,
     padding: '10px 8px',
     justifyContent: 'flex-start',
     textTransform: 'none',
     letterSpacing: 0,
     width: '100%',
-    fontWeight: theme.typography.fontWeightMedium
+    fontWeight: theme.typography.fontWeightBold
   },
   icon: {
     color: theme.palette.icon,
@@ -45,11 +47,7 @@ export const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1)
   },
   active: {
-    color:
-      theme.palette.type === 'light'
-        ? colors.blueGrey[200]
-        : colors.lightGreen[200],
-    fontWeight: theme.typography.fontWeightMedium,
+    color: theme.palette.primary.main,
     '& $icon': {
       color: theme.palette.primary.main
     }

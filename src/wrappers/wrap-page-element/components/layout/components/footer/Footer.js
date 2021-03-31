@@ -6,7 +6,8 @@ import { withStyles } from '@material-ui/core/styles'
 import { useDarkMode } from '@plugins/gatsby-plugin-dark-mode/DarkModeProvider'
 import { useSiteMetadata } from '@src/hooks/use-site-metadata'
 import React from 'react'
-import { Copyright, Icons } from './components'
+import { Icons } from '../Icons'
+import { Copyright } from './components'
 
 const ENUM = { light: lightLogo, dark: darkLogo }
 

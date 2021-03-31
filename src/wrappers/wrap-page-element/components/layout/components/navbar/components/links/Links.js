@@ -1,12 +1,25 @@
 import { Link } from '@components/link'
+import Box from '@material-ui/core/Box'
 import { useSiteMetadata } from '@src/hooks/use-site-metadata'
 import React from 'react'
+import { getIcon } from '../../icons'
+import { useStyles } from './styles'
 
 export function Links() {
   const data = useSiteMetadata()
 
   return data.links.map(RenderLink)
 }
-function RenderLink({ icon, ...rest }) {
-  return <Link key={rest.to} {...rest} />
+function RenderLink({ icon, children, ...rest }) {
+  const classes = useStyles(),
+    Icon = getIcon(icon)
+
+  return (
+    <Link key={rest.to} className={classes.link} {...rest}>
+      <Box display="flex" alignItems="center" justifyContent="space-around">
+        {Icon && <Icon className={classes.icon} />}
+        {children}
+      </Box>
+    </Link>
+  )
 }
