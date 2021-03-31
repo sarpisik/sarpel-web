@@ -1,4 +1,3 @@
-import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
 import CardWithMedia from '@components/CardWithMedia'
 import TypographyBold from '@components/TypographyBold'
 import Box from '@material-ui/core/Box'
@@ -8,6 +7,8 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+import Carousel from 'react-material-ui-carousel'
+
 import StarIcon from '@material-ui/icons/Star'
 import GroupIcon from '@material-ui/icons/Group'
 import HowToRegIcon from '@material-ui/icons/HowToReg'
@@ -15,6 +16,7 @@ import TurnedInIcon from '@material-ui/icons/TurnedIn'
 import EcoIcon from '@material-ui/icons/Eco'
 import CardWithHeight from '@components/CardWithHeight'
 import CardContent from '@material-ui/core/CardContent'
+import { Banner } from '@components/banner'
 
 const ICONS = {
   star: StarIcon,
@@ -30,17 +32,8 @@ export const IndexPageTemplate = props => {
   return (
     <React.Fragment>
       {/* Banners */}
-      {banners.map(_banner => {
-        const { text, ...banner } = _banner
-        return (
-          <React.Fragment key={text}>
-            <PreviewCompatibleImage imageInfo={banner} />
-            <Typography variant="caption" color="initial">
-              {text}
-            </Typography>
-          </React.Fragment>
-        )
-      })}
+      <Carousel>{banners.map(renderBanner)}</Carousel>
+
       <Box padding={5}>
         <Grid container spacing={5}>
           {/* What We Do */}
@@ -134,7 +127,12 @@ export const pageQuery = graphql`
         banners {
           image {
             childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
+              fluid(
+                maxWidth: 2048
+                maxHeight: 768
+                quality: 100
+                cropFocus: CENTER
+              ) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -167,6 +165,10 @@ export const pageQuery = graphql`
     }
   }
 `
+
+function renderBanner(props) {
+  return <Banner {...props} />
+}
 
 function Section(props) {
   const { children, title } = props
