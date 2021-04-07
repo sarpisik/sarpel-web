@@ -6,7 +6,7 @@ banner:
   image: /img/about_us.jpg
   alt: Alttan çekilmiş elektrik direği.
 ---
-## Hakkımızda
+# Hakkımızda
 
 Sarpel Elektrik İnşaat Taahhüt Sanayi ve Tic. Ltd. Şti. 2017 yılında Bursa’da kurulmuştur.
 
