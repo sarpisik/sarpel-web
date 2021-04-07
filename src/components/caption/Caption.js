@@ -22,7 +22,7 @@ const StyledCaption = withStyles(theme => ({
 export function Caption(props) {
   return (
     <StyledCaption>
-      <Typography {...props} variant="h3" component="span" color="inherit" />
+      <Typography variant="h3" component="span" color="inherit" {...props} />
     </StyledCaption>
   )
 }

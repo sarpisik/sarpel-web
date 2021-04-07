@@ -1,5 +1,4 @@
 import CardWithMedia from '@components/CardWithMedia'
-import TypographyBold from '@components/TypographyBold'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -18,6 +17,11 @@ import CardWithHeight from '@components/CardWithHeight'
 import CardContent from '@material-ui/core/CardContent'
 import { Banner } from '@components/banner'
 import { Container } from '@components/container'
+import {
+  Section,
+  SectionSubTitle,
+  SectionCardContainer
+} from '@components/section'
 
 const ICONS = {
   star: StarIcon,
@@ -169,52 +173,4 @@ export const pageQuery = graphql`
 
 function renderBanner(props) {
   return <Banner {...props} />
-}
-
-function Section(props) {
-  const { children, title } = props
-
-  return (
-    <Grid container item>
-      <Grid item xs={12}>
-        <SectionTitle>{title}</SectionTitle>
-      </Grid>
-      <Grid item container spacing={5} justify="center">
-        {children}
-      </Grid>
-    </Grid>
-  )
-}
-
-function SectionCardContainer(props) {
-  return <Grid {...props} item xs={12} sm={6} md={4} />
-}
-
-function SectionTitle(props) {
-  return (
-    <Box marginY={5}>
-      <TitleWithMargin
-        {...props}
-        variant="h4"
-        component="h2"
-        color="textPrimary"
-        align="center"
-      />
-    </Box>
-  )
-}
-
-function SectionSubTitle(props) {
-  return (
-    <TitleWithMargin
-      {...props}
-      variant="h5"
-      component="h3"
-      color="textPrimary"
-    />
-  )
-}
-
-function TitleWithMargin(props) {
-  return <TypographyBold {...props} gutterBottom />
 }

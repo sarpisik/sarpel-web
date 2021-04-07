@@ -1,36 +1,52 @@
 import React from 'react'
 import Project from '../../components/Project'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import { Container } from '@components/container'
+import Grid from '@material-ui/core/Grid'
+import { Section } from '@components/section'
+import { ImageContainer } from '@components/image-container'
+import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
+import { Caption } from '@components/caption'
 
-export default class BlogIndexPage extends React.Component {
-  render() {
-    return (
-      <>
-        <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url('/img/blog-index.jpg')`
-          }}
-        >
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-              backgroundColor: '#f40',
-              color: 'white',
-              padding: '1rem'
-            }}
-          >
-            Projelerimiz
-          </h1>
-        </div>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <Project />
-            </div>
-          </div>
-        </section>
-      </>
-    )
-  }
+export const ProjectsPageTemplate = ({ banner, title }) => {
+  return (
+    <>
+      <ImageContainer>
+        <PreviewCompatibleImage imageInfo={banner} />
+        <Caption component="h1">{title}</Caption>
+      </ImageContainer>
+      <Container paddingX={5} paddingY={10}>
+        <Grid container spacing={5}>
+          <Section>
+            <Project />
+          </Section>
+        </Grid>
+      </Container>
+    </>
+  )
 }
+
+const ProjectsPage = ({ data }) => {
+  const { file: image } = data
+
+  return <ProjectsPageTemplate banner={{ image }} title="Projelerimiz" />
+}
+
+ProjectsPage.propTypes = {
+  data: PropTypes.object.isRequired
+}
+
+export default ProjectsPage
+
+export const projectsPageQuery = graphql`
+  {
+    file(name: { eq: "projects_banner" }) {
+      childImageSharp {
+        fluid(maxWidth: 2048, maxHeight: 512, quality: 100, cropFocus: CENTER) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

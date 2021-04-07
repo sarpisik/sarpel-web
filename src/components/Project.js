@@ -1,7 +1,9 @@
-import React from 'react'
+import Typography from '@material-ui/core/Typography'
+import { graphql, Link, StaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
+import React from 'react'
+import CardWithMedia from './CardWithMedia'
+import { SectionCardContainer, SectionSubTitle } from './section'
 
 class Project extends React.Component {
   render() {
@@ -9,51 +11,27 @@ class Project extends React.Component {
     const { edges: projects } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
-        {projects &&
-          projects.map(({ node: project }) => (
-            <div className="is-parent column is-6" key={project.id}>
-              <article
-                className={`blog-list-item tile is-child box notification ${
-                  project.frontmatter.featuredpost ? 'is-featured' : ''
-                }`}
-              >
-                <header>
-                  {project.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: project.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for project ${project.frontmatter.title}`
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  <p className="project-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={project.fields.slug}
-                    >
-                      {project.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {project.frontmatter.date}
-                    </span>
-                  </p>
-                </header>
-                <p>
-                  {project.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={project.fields.slug}>
-                    İncele →
-                  </Link>
-                </p>
-              </article>
-            </div>
-          ))}
-      </div>
+      projects &&
+      projects.map(({ node: project }) => (
+        <SectionCardContainer key={project.id} sm={4} md={3}>
+          <CardWithMedia {...project.frontmatter.featuredimage}>
+            <SectionSubTitle>{project.frontmatter.title}</SectionSubTitle>
+            <p className="project-meta">
+              <Link to={project.fields.slug}>{project.frontmatter.title}</Link>
+              <span> &bull; </span>
+              <span className="subtitle is-size-5 is-block">
+                {project.frontmatter.date}
+              </span>
+            </p>
+            <Typography variant="body1" color="initial" align="justify">
+              {project.excerpt}
+              <br />
+              <br />
+              <Link to={project.fields.slug}>İncele →</Link>
+            </Typography>
+          </CardWithMedia>
+        </SectionCardContainer>
+      ))
     )
   }
 }
@@ -88,7 +66,12 @@ export default () => (
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
+                    fluid(
+                      maxWidth: 120
+                      maxHeight: 60
+                      quality: 100
+                      cropFocus: CENTER
+                    ) {
                       ...GatsbyImageSharpFluid
                     }
                   }
