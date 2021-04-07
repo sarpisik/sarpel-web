@@ -37,7 +37,7 @@ export const AboutPageTemplate = ({
         <PreviewCompatibleImage imageInfo={banner} />
         <Caption>{title}</Caption>
       </ImageContainer>
-      <Container textAlign="justify">
+      <Container paddingX={5} paddingY={10} textAlign="justify">
         <Card className={styles.root}>
           <CardContent className={styles.content}>
             <PageContent content={content} />
