@@ -11,8 +11,8 @@ module.exports = {
     links: [
       { to: '/', icon: 'home', children: 'Ana Sayfa' },
       { to: '/kurumsal', icon: 'business', children: 'Kurumsal' },
-      { to: '/iletisim', icon: 'explore', children: 'İletişim' },
-      { to: '/projeler', icon: 'work', children: 'Projeler' }
+      { to: '/projeler', icon: 'work', children: 'Projeler' },
+      { to: '/iletisim', icon: 'explore', children: 'İletişim' }
     ]
   },
   plugins: [
