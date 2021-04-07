@@ -5,35 +5,36 @@ import React from 'react'
 import CardWithMedia from './CardWithMedia'
 import { SectionCardContainer, SectionSubTitle } from './section'
 
-class Project extends React.Component {
-  render() {
-    const { data } = this.props
-    const { edges: projects } = data.allMarkdownRemark
+const STYLE_CAPITALIZED = { textTransform: 'capitalize' }
 
-    return (
-      projects &&
-      projects.map(({ node: project }) => (
-        <SectionCardContainer key={project.id} sm={4} md={3}>
-          <CardWithMedia {...project.frontmatter.featuredimage}>
-            <SectionSubTitle>{project.frontmatter.title}</SectionSubTitle>
-            <p className="project-meta">
-              <Link to={project.fields.slug}>{project.frontmatter.title}</Link>
-              <span> &bull; </span>
-              <span className="subtitle is-size-5 is-block">
-                {project.frontmatter.date}
-              </span>
-            </p>
-            <Typography variant="body1" color="initial" align="justify">
-              {project.excerpt}
-              <br />
-              <br />
-              <Link to={project.fields.slug}>İncele →</Link>
-            </Typography>
-          </CardWithMedia>
-        </SectionCardContainer>
-      ))
-    )
-  }
+const Project = ({ data }) => {
+  const { edges: projects } = data.allMarkdownRemark
+
+  return (
+    projects &&
+    projects.map(({ node: project }) => (
+      <SectionCardContainer key={project.id} sm={4} md={3}>
+        <CardWithMedia {...project.frontmatter.featuredimage}>
+          <SectionSubTitle style={STYLE_CAPITALIZED}>
+            {project.frontmatter.title}
+          </SectionSubTitle>
+          <p>
+            <Link style={STYLE_CAPITALIZED} to={project.fields.slug}>
+              {project.frontmatter.title}
+            </Link>
+            <span> &bull; </span>
+            <span>{project.frontmatter.date}</span>
+          </p>
+          <Typography variant="body1" color="initial" align="justify">
+            {project.excerpt}
+            <br />
+            <br />
+            <Link to={project.fields.slug}>İncele →</Link>
+          </Typography>
+        </CardWithMedia>
+      </SectionCardContainer>
+    ))
+  )
 }
 
 Project.propTypes = {
@@ -62,7 +63,7 @@ export default () => (
               frontmatter {
                 title
                 templateKey
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "MMMM DD, YYYY", locale: "tr")
                 featuredpost
                 featuredimage {
                   childImageSharp {
