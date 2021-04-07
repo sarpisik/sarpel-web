@@ -11,6 +11,7 @@ import { Icons } from '../../../Icons'
 import { getIcon } from '../../icons'
 import { Logo } from '../logo'
 import { useStyles } from './styles'
+import { globalHistory } from '@reach/router'
 
 const CustomRouterLink = React.forwardRef((props, ref) => (
   <div ref={ref} style={{ flexGrow: 1 }}>
@@ -23,6 +24,15 @@ export function Sidebar(props) {
   const { open, onClose, className, ...rest } = props,
     classes = useStyles(),
     data = useSiteMetadata()
+
+  React.useEffect(
+    function handleSideBarOnRouteChanged() {
+      return globalHistory.listen(({ action }) => {
+        if (open && action === 'PUSH') onClose()
+      })
+    },
+    [open]
+  )
 
   return (
     <Drawer
