@@ -14,9 +14,9 @@ export function TopBar({ className = '', onSidebarOpen }) {
 
   return (
     <AppBar
-      className={clsx(classes.root, className)}
+      className={clsx(classes.root, className, 'header-dynamic')}
       position="sticky"
-      color="default"
+      color="inherit"
     >
       <Toolbar>
         <Logo />

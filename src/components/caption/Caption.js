@@ -14,14 +14,15 @@ const StyledCaption = withStyles(theme => ({
     width: '100%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    color: theme.palette.common.white
   }
 }))(Box)
 
 export function Caption(props) {
   return (
     <StyledCaption>
-      <Typography {...props} variant="h3" component="span" color="initial" />
+      <Typography {...props} variant="h3" component="span" color="inherit" />
     </StyledCaption>
   )
 }
