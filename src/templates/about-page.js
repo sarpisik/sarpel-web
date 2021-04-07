@@ -1,4 +1,6 @@
+import { Caption } from '@components/caption'
 import { Container } from '@components/container'
+import { ImageContainer } from '@components/image-container'
 import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
@@ -15,16 +17,16 @@ export const AboutPageTemplate = ({
 
   return (
     <>
-      <PreviewCompatibleImage imageInfo={banner} />
+      <ImageContainer>
+        <PreviewCompatibleImage imageInfo={banner} />
+        <Caption>{title}</Caption>
+      </ImageContainer>
       <Container>
         <section className="section section--gradient">
           <div className="container">
             <div className="columns">
               <div className="column is-10 is-offset-1">
                 <div className="section">
-                  <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                    {title}
-                  </h2>
                   <PageContent className="content" content={content} />
                 </div>
               </div>
