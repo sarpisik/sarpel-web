@@ -1,3 +1,4 @@
+import { Container } from '@components/container'
 import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
@@ -15,20 +16,22 @@ export const AboutPageTemplate = ({
   return (
     <>
       <PreviewCompatibleImage imageInfo={banner} />
-      <section className="section section--gradient">
-        <div className="container">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="section">
-                <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                  {title}
-                </h2>
-                <PageContent className="content" content={content} />
+      <Container>
+        <section className="section section--gradient">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-10 is-offset-1">
+                <div className="section">
+                  <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+                    {title}
+                  </h2>
+                  <PageContent className="content" content={content} />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Container>
     </>
   )
 }
@@ -67,7 +70,12 @@ export const aboutPageQuery = graphql`
         banner {
           image {
             childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
+              fluid(
+                maxWidth: 2048
+                maxHeight: 512
+                quality: 100
+                cropFocus: CENTER
+              ) {
                 ...GatsbyImageSharpFluid
               }
             }

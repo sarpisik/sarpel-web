@@ -17,6 +17,7 @@ import EcoIcon from '@material-ui/icons/Eco'
 import CardWithHeight from '@components/CardWithHeight'
 import CardContent from '@material-ui/core/CardContent'
 import { Banner } from '@components/banner'
+import { Container } from '@components/container'
 
 const ICONS = {
   star: StarIcon,
@@ -34,7 +35,7 @@ export const IndexPageTemplate = props => {
       {/* Banners */}
       <Carousel>{banners.map(renderBanner)}</Carousel>
 
-      <Box padding={5}>
+      <Container padding={5}>
         <Grid container spacing={5}>
           {/* What We Do */}
           <Section title={whatWeDo.title}>
@@ -86,7 +87,7 @@ export const IndexPageTemplate = props => {
             })}
           </Section>
         </Grid>
-      </Box>
+      </Container>
     </React.Fragment>
   )
 }
