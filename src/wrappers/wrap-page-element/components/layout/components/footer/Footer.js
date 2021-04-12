@@ -18,21 +18,16 @@ const StyledToolbar = withStyles(theme => {
     root: {
       paddingTop: spacing,
       paddingBottom: spacing,
-      '& > .footer-child': { paddingBottom: spacing }
+      '& > div': {
+        paddingBottom: spacing
+      }
     }
   }
 })(Box)
 
-const StyledFooter = withStyles(theme => {
-  return {
-    root: {
-      backgroundColor:
-        theme.palette.type === 'light'
-          ? theme.palette.grey[100]
-          : theme.palette.grey[900]
-    }
-  }
-})(Paper)
+const StyledLogoAvatar = withStyles(theme => {
+  return { root: { width: theme.spacing(15), margin: 'auto' } }
+})(LogoAvatar)
 
 export default function Footer() {
   const data = useSiteMetadata(),
@@ -40,12 +35,12 @@ export default function Footer() {
     { mode } = useDarkMode()
 
   return (
-    <StyledFooter component="footer" elevation={4} square>
+    <Paper component="footer" elevation={4} square>
       <StyledToolbar>
-        <LogoAvatar src={ENUM[mode]} alt={`${data.title} brand logo.`} />
+        <StyledLogoAvatar src={ENUM[mode]} alt={`${data.title} brand logo.`} />
         <Icons email={email} />
         <Copyright name={title} />
       </StyledToolbar>
-    </StyledFooter>
+    </Paper>
   )
 }
