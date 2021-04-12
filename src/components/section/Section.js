@@ -3,8 +3,12 @@ import React from 'react'
 import TypographyBold from '@components/TypographyBold'
 import Box from '@material-ui/core/Box'
 
+export function SectionContainer(props) {
+  return <Grid container {...props} />
+}
+
 export function Section(props) {
-  const { children, title } = props
+  const { title, ...rest } = props
 
   return (
     <Grid container item>
@@ -13,9 +17,7 @@ export function Section(props) {
           <SectionTitle>{title}</SectionTitle>
         </Grid>
       )}
-      <Grid item container spacing={5} justify="center">
-        {children}
-      </Grid>
+      <Grid item container spacing={5} justify="center" {...rest} />
     </Grid>
   )
 }
