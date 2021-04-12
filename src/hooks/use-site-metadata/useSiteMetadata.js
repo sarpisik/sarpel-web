@@ -11,6 +11,7 @@ export const useSiteMetadata = () => {
             email
             links {
               to
+              icon
               children
             }
           }

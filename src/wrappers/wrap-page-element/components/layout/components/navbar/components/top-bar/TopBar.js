@@ -1,3 +1,4 @@
+import { Toolbar } from '@components/toolbar'
 import AppBar from '@material-ui/core/AppBar/AppBar'
 import Hidden from '@material-ui/core/Hidden/Hidden'
 import IconButton from '@material-ui/core/IconButton/IconButton'
@@ -13,20 +14,22 @@ export function TopBar({ className = '', onSidebarOpen }) {
 
   return (
     <AppBar
-      className={clsx(classes.root, className)}
+      className={clsx(classes.root, className, 'header-dynamic')}
       position="sticky"
-      color="default"
+      color="inherit"
     >
-      <Logo />
-      <div className={classes.flexGrow} />
-      <Hidden mdDown>
-        <Links />
-      </Hidden>
-      <Hidden lgUp>
-        <IconButton color="inherit" onClick={onSidebarOpen}>
-          <MenuIcon />
-        </IconButton>
-      </Hidden>
+      <Toolbar>
+        <Logo />
+        <div className={classes.flexGrow} />
+        <Hidden mdDown>
+          <Links />
+        </Hidden>
+        <Hidden lgUp>
+          <IconButton color="inherit" onClick={onSidebarOpen}>
+            <MenuIcon />
+          </IconButton>
+        </Hidden>
+      </Toolbar>
     </AppBar>
   )
 }

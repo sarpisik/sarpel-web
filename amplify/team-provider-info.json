@@ -1,25 +1,4 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-sarpelweb-dev-193557-authRole",
-      "UnauthRoleArn": "arn:aws:iam::849999570621:role/amplify-sarpelweb-dev-193557-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::849999570621:role/amplify-sarpelweb-dev-193557-authRole",
-      "Region": "eu-central-1",
-      "DeploymentBucketName": "amplify-sarpelweb-dev-193557-deployment",
-      "UnauthRoleName": "amplify-sarpelweb-dev-193557-unauthRole",
-      "StackName": "amplify-sarpelweb-dev-193557",
-      "StackId": "arn:aws:cloudformation:eu-central-1:849999570621:stack/amplify-sarpelweb-dev-193557/8e647c80-6e19-11eb-9535-060d0d769b12",
-      "AmplifyAppId": "dpb4kd3fctbvw"
-    },
-    "categories": {
-      "function": {
-        "sarpelGithubLambda": {
-          "deploymentBucketName": "amplify-sarpelweb-dev-193557-deployment",
-          "s3Key": "amplify-builds/sarpelGithubLambda-48466238646f6839792b-build.zip"
-        }
-      }
-    }
-  },
   "prod": {
     "awscloudformation": {
       "AuthRoleName": "amplify-sarpelweb-prod-222648-authRole",

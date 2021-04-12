@@ -12,7 +12,7 @@ export default function Header() {
   const { mode, handleDarkModeToggle } = useDarkMode()
 
   return (
-    <AppBar position="static" color="transparent">
+    <AppBar position="static" color="inherit" elevation={0}>
       <Toolbar>
         <Switch
           color="primary"

@@ -1,14 +1,14 @@
 import { Link } from '@components/link'
 import { LogoAvatar } from '@components/logo-avatar'
-import {
-  default as darkLogo,
-  default as lightLogo
-} from '@img/logos/logo_solid.svg'
+import { LOGOS_ENUM } from '@img/logos'
+import { withStyles } from '@material-ui/core/styles'
 import { useDarkMode } from '@plugins/gatsby-plugin-dark-mode/DarkModeProvider'
 import { useSiteMetadata } from '@src/hooks/use-site-metadata'
 import React from 'react'
 
-const ENUM = { light: lightLogo, dark: darkLogo }
+const StyledLogoAvatar = withStyles(theme => {
+  return { root: { width: theme.spacing(10), margin: 'auto' } }
+})(LogoAvatar)
 
 export function Logo() {
   const data = useSiteMetadata(),
@@ -16,7 +16,10 @@ export function Logo() {
 
   return (
     <Link to="/">
-      <LogoAvatar src={ENUM[mode]} alt={`${data.title} brand logo.`} />
+      <StyledLogoAvatar
+        src={LOGOS_ENUM[mode]}
+        alt={`${data.title} brand logo.`}
+      />
     </Link>
   )
 }

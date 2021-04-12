@@ -9,5 +9,6 @@
   "[javascriptreact]": {
     "editor.formatOnSave": true
   },
-  "debug.node.autoAttach": "off"
+  "debug.node.autoAttach": "off",
+  "editor.tabSize": 2
 }
