@@ -1,5 +1,6 @@
 import { LogoAvatar } from '@components/logo-avatar'
-import { default as darkLogo, default as lightLogo } from '@img/logos/logo.svg'
+import lightLogo from '@img/logos/logo.svg'
+import darkLogo from '@img/logos/logo_dark_mode.svg'
 import Box from '@material-ui/core/Box/Box'
 import Paper from '@material-ui/core/Paper/Paper'
 import { withStyles } from '@material-ui/core/styles'
