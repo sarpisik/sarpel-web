@@ -7,7 +7,7 @@ export function Banner(props) {
   const { text, ...banner } = props
 
   return (
-    <ImageContainer key={text}>
+    <ImageContainer>
       <PreviewCompatibleImage imageInfo={banner} />
       <Caption>{text}</Caption>
     </ImageContainer>

@@ -172,5 +172,5 @@ export const pageQuery = graphql`
 `
 
 function renderBanner(props) {
-  return <Banner {...props} />
+  return <Banner key={props.text} {...props} />
 }
