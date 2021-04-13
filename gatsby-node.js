@@ -3,7 +3,7 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
-const SLUGS_TO_EXCLUDE = ['/global/', '/company/']
+const TEMPLATE_KEYS_TO_EXCLUDE = ['global', 'company']
 
 exports.onCreateBabelConfig = ({ actions }) => {
   // https://material-ui.com/guides/minimizing-bundle-size/
@@ -49,29 +49,30 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges.filter(
-      edge => !SLUGS_TO_EXCLUDE.includes(edge.node.fields.slug)
+    const pages = result.data.allMarkdownRemark.edges.filter(
+      edge =>
+        !TEMPLATE_KEYS_TO_EXCLUDE.includes(edge.node.frontmatter.templateKey)
     )
 
-    posts.forEach(edge => {
-      const id = edge.node.id
+    pages.forEach(edge => {
+      const node = edge.node,
+        frontmatter = node.frontmatter
+
       createPage({
-        path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
+        path: node.fields.slug,
+        tags: frontmatter.tags,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${String(frontmatter.templateKey)}.js`
         ),
         // additional data can be passed via context
-        context: {
-          id
-        }
+        context: { id: node.id }
       })
     })
 
     // Tag pages:
     let tags = []
     // Iterate through each post, putting all found tags into `tags`
-    posts.forEach(edge => {
+    pages.forEach(edge => {
       if (_.get(edge, `node.frontmatter.tags`)) {
         tags = tags.concat(edge.node.frontmatter.tags)
       }
@@ -86,24 +87,23 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: tagPath,
         component: path.resolve(`src/templates/tags.js`),
-        context: {
-          tag
-        }
+        context: { tag }
       })
     })
   })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  fmImagesToRelative(node) // convert image paths for gatsby images
+  const { createNodeField } = actions,
+    skipFmImages =
+      node.frontmatter && node.frontmatter.templateKey === 'company'
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+  skipFmImages || fmImagesToRelative(node) // convert image paths for gatsby images
+
+  if (node.internal.type === `MarkdownRemark`)
     createNodeField({
       name: `slug`,
       node,
-      value
+      value: createFilePath({ node, getNode })
     })
-  }
 }

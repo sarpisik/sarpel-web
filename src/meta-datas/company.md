@@ -1,4 +1,5 @@
 ---
+templateKey: company
 address: Beşevler Mah. Yıldırım Cad. No:274/1C BURSA
 email: sarpelelektrik@hotmail.com
 phones:

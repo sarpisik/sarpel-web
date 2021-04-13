@@ -1,12 +1,12 @@
 import { Link } from '@components/link'
 import Box from '@material-ui/core/Box'
-import { useSiteMetadata } from '@src/hooks/use-site-metadata'
+import { useCompanyMetadata } from '@hooks/use-company-metadata'
 import React from 'react'
 import { getIcon } from '../../icons'
 import { useStyles } from './styles'
 
 export function Links() {
-  const data = useSiteMetadata()
+  const data = useCompanyMetadata()
 
   return data.links.map(RenderLink)
 }

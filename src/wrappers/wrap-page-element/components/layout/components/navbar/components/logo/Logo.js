@@ -3,7 +3,7 @@ import { LogoAvatar } from '@components/logo-avatar'
 import { LOGOS_ENUM } from '@img/logos'
 import { withStyles } from '@material-ui/core/styles'
 import { useDarkMode } from '@plugins/gatsby-plugin-dark-mode/DarkModeProvider'
-import { useSiteMetadata } from '@src/hooks/use-site-metadata'
+import { useGlobalMetadata } from '@hooks/use-global-metadata'
 import React from 'react'
 
 const StyledLogoAvatar = withStyles(theme => {
@@ -11,14 +11,13 @@ const StyledLogoAvatar = withStyles(theme => {
 })(LogoAvatar)
 
 export function Logo() {
-  const data = useSiteMetadata(),
-    { mode } = useDarkMode()
+  const { mode } = useDarkMode()
 
   return (
     <Link to="/">
       <StyledLogoAvatar
         src={LOGOS_ENUM[mode]}
-        alt={`${data.title} brand logo.`}
+        alt={`${useGlobalMetadata().title} brand logo.`}
       />
     </Link>
   )

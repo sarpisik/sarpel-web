@@ -23,7 +23,7 @@ export function ContactIcons({ address, phones, email, ...rest }) {
       </IconContainer>
       <IconContainer>
         <PhoneInTalkIcon style={ICON_SIZE} />
-        {phones.map(phone => (
+        {phones.map(({ phone }) => (
           <BoldTypography key={phone}>{phone}</BoldTypography>
         ))}
       </IconContainer>

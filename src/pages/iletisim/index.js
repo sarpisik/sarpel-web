@@ -3,11 +3,11 @@ import React from 'react'
 import { ContactPageTemplate } from '../../templates/contact-page'
 
 export default function ContactPage({ data }) {
-  const { file: image, site } = data
+  const { file: image, markdownRemark } = data
 
   return (
     <ContactPageTemplate
-      {...site.siteMetadata}
+      {...markdownRemark.frontmatter}
       banner={{ image }}
       title="İletişim"
     />
@@ -16,11 +16,13 @@ export default function ContactPage({ data }) {
 
 export const pageQuery = graphql`
   query ContactPageTemplate {
-    site {
-      siteMetadata {
+    markdownRemark(frontmatter: { templateKey: { eq: "company" } }) {
+      frontmatter {
         email
         address
-        phones
+        phones {
+          phone
+        }
       }
     }
     file(name: { eq: "contact_banner" }) {
