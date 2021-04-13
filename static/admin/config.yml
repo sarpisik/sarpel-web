@@ -60,12 +60,24 @@ collections:
         label: 'Genel'
         name: 'global'
         fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'global'
+            }
           - { label: 'Başlık', name: 'title', widget: 'string' }
           - { label: 'Açıklama', name: 'description', widget: 'text' }
       - file: 'src/meta-datas/company.md'
         label: 'Şirket'
         name: 'company'
         fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'company'
+            }
           - { label: 'Adres', name: 'address', widget: 'text' }
           - { label: 'Email', name: 'email', widget: 'text' }
           - {
