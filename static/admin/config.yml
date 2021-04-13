@@ -60,17 +60,34 @@ collections:
         label: 'Genel'
         name: 'global'
         fields:
+          - { label: 'Başlık', name: 'title', widget: 'string' }
+          - { label: 'Açıklama', name: 'description', widget: 'text' }
+      - file: 'src/meta-datas/company.md'
+        label: 'Şirket'
+        name: 'company'
+        fields:
+          - { label: 'Adres', name: 'address', widget: 'text' }
+          - { label: 'Email', name: 'email', widget: 'text' }
           - {
-              label: 'Başlık',
-              name: 'title',
-              widget: 'string'
+              label: 'Telefonlar',
+              label_singular: 'Telefon',
+              name: 'phones',
+              widget: 'list',
+              fields: [{ label: 'No', name: 'phone', widget: 'string' }]
             }
           - {
-              label: 'Açıklama',
-              name: 'description',
-              widget: 'text'
+              label: 'Bağlantılar',
+              label_singular: 'Bağlantı',
+              name: 'links',
+              widget: 'list',
+              fields:
+                [
+                  { label: 'Adı', name: 'children', widget: 'string' },
+                  { label: 'İkon', name: 'icon', widget: 'string' },
+                  { label: 'İz', name: 'to', widget: 'string' }
+                ]
             }
-  
+
   - name: 'pages'
     label: 'Pages'
     files:
