@@ -65,6 +65,11 @@ collections:
               name: 'title',
               widget: 'string'
             }
+          - {
+              label: 'Açıklama',
+              name: 'description',
+              widget: 'text'
+            }
   
   - name: 'pages'
     label: 'Pages'
