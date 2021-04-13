@@ -3,6 +3,8 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
+const SLUGS_TO_EXCLUDE = ['/global/', '/company/']
+
 exports.onCreateBabelConfig = ({ actions }) => {
   // https://material-ui.com/guides/minimizing-bundle-size/
   actions.setBabelPlugin({
@@ -47,7 +49,9 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allMarkdownRemark.edges.filter(
+      edge => !SLUGS_TO_EXCLUDE.includes(edge.node.fields.slug)
+    )
 
     posts.forEach(edge => {
       const id = edge.node.id
