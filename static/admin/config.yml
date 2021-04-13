@@ -16,6 +16,7 @@ backend:
 
 media_folder: static/img
 public_folder: /img
+locale: 'tr'
 slug:
   encoding: 'ascii'
   clean_accents: true
@@ -52,6 +53,19 @@ collections:
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Tags', name: 'tags', widget: 'list' }
 
+  - name: 'meta-datas'
+    label: 'Meta-Datas'
+    files:
+      - file: 'src/meta-datas/global.md'
+        label: 'Genel'
+        name: 'global'
+        fields:
+          - {
+              label: 'Başlık',
+              name: 'title',
+              widget: 'string'
+            }
+  
   - name: 'pages'
     label: 'Pages'
     files:

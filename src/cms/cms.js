@@ -1,10 +1,15 @@
 import CMS from 'netlify-cms-app'
+
+import { tr } from 'netlify-cms-locales'
+
 import uploadcare from 'netlify-cms-media-library-uploadcare'
 import cloudinary from 'netlify-cms-media-library-cloudinary'
 
 import AboutPagePreview from './preview-templates/AboutPagePreview'
 import ProjectPreview from './preview-templates/ProjectPreview'
 import IndexPagePreview from './preview-templates/IndexPagePreview'
+
+CMS.registerLocale('tr', tr)
 
 CMS.registerMediaLibrary(uploadcare)
 CMS.registerMediaLibrary(cloudinary)
