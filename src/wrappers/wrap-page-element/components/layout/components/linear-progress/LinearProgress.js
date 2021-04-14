@@ -1,5 +1,5 @@
 import React from 'react'
-import { LinearProgress as MuiLinearProgress } from '@material-ui/core/LinearProgress/LinearProgress'
+import MuiLinearProgress from '@material-ui/core/LinearProgress'
 
 export function LinearProgress() {
   return <MuiLinearProgress color="primary" />
