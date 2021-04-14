@@ -1,7 +1,6 @@
 const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
-const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
 const TEMPLATE_KEYS_TO_EXCLUDE = ['global', 'company']
 
@@ -94,11 +93,7 @@ exports.createPages = ({ actions, graphql }) => {
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions,
-    skipFmImages =
-      node.frontmatter && node.frontmatter.templateKey === 'company'
-
-  skipFmImages || fmImagesToRelative(node) // convert image paths for gatsby images
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`)
     createNodeField({
