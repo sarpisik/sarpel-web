@@ -8,6 +8,7 @@ import React from 'react'
 import Content from './Content'
 import CardContent from '@material-ui/core/CardContent'
 import { makeStyles } from '@material-ui/core/styles'
+import { SEO } from './seo'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,6 +33,7 @@ export const AboutPageTemplate = ({
 
   return (
     <>
+      <SEO title={title} />
       <ImageContainer>
         <PreviewCompatibleImage imageInfo={banner} />
         <Caption>{title}</Caption>
