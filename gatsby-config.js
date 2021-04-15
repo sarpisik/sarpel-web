@@ -124,6 +124,7 @@ module.exports = {
         icon: 'src/img/logos/logo.png'
       }
     },
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
