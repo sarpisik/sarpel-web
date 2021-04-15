@@ -6,10 +6,12 @@ import { Section } from '@components/section'
 import Grid from '@material-ui/core/Grid'
 import React from 'react'
 import Project from '@components/Project'
+import { SEO } from '@components/seo'
 
 export const ProjectsPageTemplate = ({ banner, title }) => {
   return (
-    <>
+    <React.Fragment>
+      <SEO title={title} />
       <ImageContainer>
         <PreviewCompatibleImage imageInfo={banner} />
         <Caption component="h1">{title}</Caption>
@@ -21,6 +23,6 @@ export const ProjectsPageTemplate = ({ banner, title }) => {
           </Section>
         </Grid>
       </Container>
-    </>
+    </React.Fragment>
   )
 }
