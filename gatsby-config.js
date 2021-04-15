@@ -1,6 +1,8 @@
+const NAME = 'Sarpel Elektrik'
+
 module.exports = {
   siteMetadata: {
-    title: 'Sarpel Elektrik',
+    title: NAME,
     description:
       'Sarpel Elektrik "Doğadan Aldığımız Güçle Her Yerdeyiz" sloganıyla yola çıkarak, vizyonu elektrik mühendisliği hizmetlerinin inovatif ve lider kuruluşu olmasıdır',
     siteUrl: process.env.SITE_URL || 'http://localhost:8000'
@@ -109,6 +111,18 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: { exclude: ['/admin'] }
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: NAME,
+        short_name: NAME,
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
+        display: 'standalone',
+        icon: 'src/img/logos/logo.png'
+      }
     },
     {
       resolve: 'gatsby-plugin-netlify-cms',
