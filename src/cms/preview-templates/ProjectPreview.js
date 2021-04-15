@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ProjectTemplate } from '../../templates/project-page'
+import { ProjectPageTemplate } from '@components/ProjectPageTemplate'
 
 const ProjectPreview = ({ entry, widgetFor }) => {
   // const tags = entry.getIn(['data', 'tags'])
   return (
-    <ProjectTemplate
+    <ProjectPageTemplate
       content={widgetFor('body')}
       description={entry.getIn(['data', 'description'])}
       // tags={tags && tags.toJS()}
