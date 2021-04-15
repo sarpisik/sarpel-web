@@ -15,15 +15,17 @@ ProjectsPage.propTypes = {
 
 export default ProjectsPage
 
-export const projectsPageQuery = graphql`{
-  file(name: {eq: "projects_banner"}) {
-    childImageSharp {
-      gatsbyImageData(
-        quality: 100
-        transformOptions: {cropFocus: CENTER}
-        layout: FULL_WIDTH
-      )
+export const projectsPageQuery = graphql`
+  {
+    file(name: { eq: "projects_banner" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 2048
+          height: 512
+          quality: 50
+          transformOptions: { cropFocus: CENTER }
+        )
+      }
     }
   }
-}
 `

@@ -30,7 +30,7 @@ export const pageQuery = graphql`
         gatsbyImageData(
           width: 2048
           height: 512
-          quality: 100
+          quality: 50
           transformOptions: { cropFocus: CENTER }
         )
       }
