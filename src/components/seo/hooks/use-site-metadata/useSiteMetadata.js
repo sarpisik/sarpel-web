@@ -1,18 +1,43 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
 export const useSiteMetadata = () => {
-  const { site } = useStaticQuery(
+  const {
+    site: { siteMetadata },
+    file,
+    markdownRemark
+  } = useStaticQuery(
     graphql`
       query SITE_METADATA_QUERY {
         site {
           siteMetadata {
             title
             description
+            url
+          }
+        }
+        markdownRemark(frontmatter: { templateKey: { eq: "company" } }) {
+          frontmatter {
+            email
+            address
+            phones {
+              phone
+            }
+          }
+        }
+        file(name: { eq: "logo" }) {
+          childImageSharp {
+            original {
+              src
+            }
           }
         }
       }
     `
   )
 
-  return site.siteMetadata
+  return {
+    siteMetadata,
+    logo: file.childImageSharp.original.src,
+    ...markdownRemark.frontmatter
+  }
 }

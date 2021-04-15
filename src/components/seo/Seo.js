@@ -5,7 +5,7 @@ import { useSiteMetadata } from './hooks'
 
 export function SEO(props) {
   const { title, description } = props,
-    siteMetadata = useSiteMetadata(),
+    { siteMetadata, logo, email, address } = useSiteMetadata(),
     metaDescription = description || siteMetadata.description
 
   return (
@@ -18,7 +18,18 @@ export function SEO(props) {
           content: metaDescription
         }
       ]}
-    />
+    >
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          url: siteMetadata.url,
+          logo: siteMetadata.url + logo,
+          email,
+          address
+        })}
+      </script>
+    </Helmet>
   )
 }
 
