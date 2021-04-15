@@ -12,7 +12,7 @@ export const useSiteMetadata = () => {
           siteMetadata {
             title
             description
-            url
+            siteUrl
           }
         }
         markdownRemark(frontmatter: { templateKey: { eq: "company" } }) {

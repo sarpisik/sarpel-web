@@ -3,7 +3,7 @@ module.exports = {
     title: 'Sarpel Elektrik',
     description:
       'Sarpel Elektrik "Doğadan Aldığımız Güçle Her Yerdeyiz" sloganıyla yola çıkarak, vizyonu elektrik mühendisliği hizmetlerinin inovatif ve lider kuruluşu olmasıdır',
-    url: process.env.SITE_URL || 'http://localhost:8000'
+    siteUrl: process.env.SITE_URL || 'http://localhost:8000'
   },
   plugins: [
     'gatsby-plugin-react-helmet',

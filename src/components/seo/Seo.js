@@ -23,8 +23,8 @@ export function SEO(props) {
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          url: siteMetadata.url,
-          logo: siteMetadata.url + logo,
+          url: siteMetadata.siteUrl,
+          logo: siteMetadata.siteUrl + logo,
           email,
           address
         })}
