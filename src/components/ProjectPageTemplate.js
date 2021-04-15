@@ -40,12 +40,7 @@ export const ProjectPageTemplate = ({
           <SectionCardContainer sm={6}>
             <CardWithHeight>
               <CardContent>
-                <TypographyCapitalized
-                  variant="h3"
-                  component="h1"
-                  textTransform="capitalize"
-                  gutterBottom
-                >
+                <TypographyCapitalized variant="h3" component="h1" gutterBottom>
                   {title}
                 </TypographyCapitalized>
                 <Capitalized>
@@ -81,7 +76,8 @@ export const ProjectPageTemplate = ({
     </Container>
   )
 }
-ProjectTemplate.propTypes = {
+
+ProjectPageTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,

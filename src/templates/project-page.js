@@ -38,23 +38,24 @@ Project.propTypes = {
 
 export default Project
 
-export const pageQuery = graphql`query ProjectByID($id: String!) {
-  markdownRemark(id: {eq: $id}) {
-    id
-    html
-    frontmatter {
-      date(formatString: "MMMM DD, YYYY", locale: "tr")
-      title
-      status
-      location
-      description
-      tags
-      featuredimage {
-        childImageSharp {
-          gatsbyImageData(width: 120, quality: 100, layout: CONSTRAINED)
+export const pageQuery = graphql`
+  query ProjectByID($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      id
+      html
+      frontmatter {
+        date(formatString: "MMMM DD, YYYY", locale: "tr")
+        title
+        status
+        location
+        description
+        tags
+        featuredimage {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED)
+          }
         }
       }
     }
   }
-}
 `
