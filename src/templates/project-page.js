@@ -12,15 +12,7 @@ const Project = ({ data }) => {
     <ProjectPageTemplate
       content={project.html}
       contentComponent={HTMLContent}
-      helmet={
-        <Helmet titleTemplate="%s | Blog">
-          <title>{`${project.frontmatter.title}`}</title>
-          <meta
-            name="description"
-            content={`${project.frontmatter.description}`}
-          />
-        </Helmet>
-      }
+      description={project.frontmatter.description}
       tags={project.frontmatter.tags}
       title={project.frontmatter.title}
       status={project.frontmatter.status}
