@@ -66,6 +66,7 @@ module.exports = {
     'gatsby-plugin-mui-layout',
     'gatsby-plugin-dark-mode',
     'gatsby-plugin-material-ui',
+    `gatsby-plugin-image`,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
