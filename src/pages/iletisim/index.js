@@ -27,9 +27,12 @@ export const pageQuery = graphql`
     }
     file(name: { eq: "contact_banner" }) {
       childImageSharp {
-        fluid(maxWidth: 2048, maxHeight: 512, quality: 100, cropFocus: CENTER) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(
+          width: 2048
+          height: 512
+          quality: 100
+          transformOptions: { cropFocus: CENTER }
+        )
       }
     }
   }

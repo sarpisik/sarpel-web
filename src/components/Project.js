@@ -47,42 +47,40 @@ Project.propTypes = {
 
 export default () => (
   <StaticQuery
-    query={graphql`
-      query BlogRollQuery {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "project-page" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 400)
-              id
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                templateKey
-                date(formatString: "MMMM DD, YYYY", locale: "tr")
-                featuredpost
-                featuredimage {
-                  childImageSharp {
-                    fluid(
-                      maxWidth: 120
-                      maxHeight: 60
-                      quality: 100
-                      cropFocus: CENTER
-                    ) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
+    query={graphql`query BlogRollQuery {
+  allMarkdownRemark(
+    sort: {order: DESC, fields: [frontmatter___date]}
+    filter: {frontmatter: {templateKey: {eq: "project-page"}}}
+  ) {
+    edges {
+      node {
+        excerpt(pruneLength: 400)
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          templateKey
+          date(formatString: "MMMM DD, YYYY", locale: "tr")
+          featuredpost
+          featuredimage {
+            childImageSharp {
+              gatsbyImageData(
+                width: 120
+                height: 60
+                quality: 100
+                transformOptions: {cropFocus: CENTER}
+                layout: CONSTRAINED
+              )
             }
           }
         }
       }
-    `}
+    }
+  }
+}
+`}
     render={(data, count) => <Project data={data} count={count} />}
   />
 )
