@@ -4,6 +4,7 @@ import { Container } from '@components/container'
 import { ImageContainer } from '@components/image-container'
 import { Map } from '@components/map'
 import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
+import { SEO } from '@components/seo'
 import Grid from '@material-ui/core/Grid'
 import React from 'react'
 
@@ -11,7 +12,8 @@ export function ContactPageTemplate(props) {
   const { banner, title, email, address, phones } = props
 
   return (
-    <>
+    <React.Fragment>
+      <SEO title={title} />
       <ImageContainer>
         <PreviewCompatibleImage imageInfo={banner} />
         <Caption component="h1">{title}</Caption>
@@ -27,6 +29,6 @@ export function ContactPageTemplate(props) {
           <Map spacing={10} />
         </Grid>
       </Container>
-    </>
+    </React.Fragment>
   )
 }
