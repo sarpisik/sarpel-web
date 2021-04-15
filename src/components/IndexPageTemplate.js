@@ -19,6 +19,7 @@ import TurnedInIcon from '@material-ui/icons/TurnedIn'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Carousel from 'react-material-ui-carousel'
+import { SEO } from './seo'
 
 const ICONS = {
   star: StarIcon,
@@ -29,10 +30,11 @@ const ICONS = {
 }
 
 export const IndexPageTemplate = props => {
-  const { banners, whatWeDo, whyUs } = props
+  const { banners, whatWeDo, whyUs, ...seo } = props
 
   return (
     <React.Fragment>
+      <SEO {...seo} />
       {/* Banners */}
       <Carousel>{banners.map(renderBanner)}</Carousel>
 

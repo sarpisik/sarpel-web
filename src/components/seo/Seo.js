@@ -5,13 +5,19 @@ import { useSiteMetadata } from './hooks'
 
 export function SEO(props) {
   const { title, description } = props,
-    siteMetadata = useSiteMetadata()
+    siteMetadata = useSiteMetadata(),
+    metaDescription = description || siteMetadata.description
 
   return (
     <Helmet
       title={title}
-      description={description}
       titleTemplate={`${siteMetadata.title} | %s`}
+      meta={[
+        {
+          name: 'description',
+          content: metaDescription
+        }
+      ]}
     />
   )
 }

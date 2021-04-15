@@ -7,7 +7,7 @@ import { IndexPageTemplate } from '@components/IndexPageTemplate'
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
-  return <IndexPageTemplate {...frontmatter} />
+  return <IndexPageTemplate {...frontmatter} title="Ana Sayfa" />
 }
 
 IndexPage.propTypes = {
