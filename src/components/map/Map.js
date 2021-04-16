@@ -22,6 +22,7 @@ export function Map(props) {
           allowFullScreen=""
           aria-hidden="false"
           tabIndex="0"
+          title="google map"
         ></iframe>
       </SectionCardContainer>
     </Section>

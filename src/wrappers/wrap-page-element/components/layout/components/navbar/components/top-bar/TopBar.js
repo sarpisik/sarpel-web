@@ -25,7 +25,11 @@ export function TopBar({ className = '', onSidebarOpen }) {
           <Links />
         </Hidden>
         <Hidden lgUp>
-          <IconButton color="inherit" onClick={onSidebarOpen}>
+          <IconButton
+            aria-label="toggle sidebar"
+            color="inherit"
+            onClick={onSidebarOpen}
+          >
             <MenuIcon />
           </IconButton>
         </Hidden>

@@ -10,7 +10,7 @@ export default function Icons(props) {
   return (
     <Box display="flex" justifyContent="center" className="footer-child">
       <Link href={`mailto:${email}`}>
-        <MailIcon style={ICON_STYLE} />
+        <MailIcon titleAccess="mail icon" style={ICON_STYLE} />
       </Link>
     </Box>
   )
