@@ -24,7 +24,7 @@ export const useSiteMetadata = () => {
             }
           }
         }
-        file(name: { eq: "logo" }) {
+        file(name: { eq: "logo" }, extension: { eq: "png" }) {
           childImageSharp {
             original {
               src
