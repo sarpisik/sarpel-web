@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: sarpisik/sarpel-web
-  branch: main
+  branch: dev
   base_url: https://l4oswclvq4.execute-api.eu-central-1.amazonaws.com
   auth_endpoint: /prod/github/auth
   commit_messages:
