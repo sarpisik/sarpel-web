@@ -22,12 +22,13 @@ import Carousel from 'react-material-ui-carousel'
 import { SEO } from './seo'
 
 const ICONS = {
-  star: StarIcon,
-  group: GroupIcon,
-  howToReg: HowToRegIcon,
-  turnedIn: TurnedInIcon,
-  eco: EcoIcon
-}
+    star: StarIcon,
+    group: GroupIcon,
+    howToReg: HowToRegIcon,
+    turnedIn: TurnedInIcon,
+    eco: EcoIcon
+  },
+  INDICATOR_ICON_BTN_PROPS = { 'aria-label': 'Slide indicator.' }
 
 export const IndexPageTemplate = props => {
   const { banners, whatWeDo, whyUs, ...seo } = props
@@ -36,7 +37,9 @@ export const IndexPageTemplate = props => {
     <React.Fragment>
       <SEO {...seo} />
       {/* Banners */}
-      <Carousel>{banners.map(renderBanner)}</Carousel>
+      <Carousel indicatorIconButtonProps={INDICATOR_ICON_BTN_PROPS}>
+        {banners.map(renderBanner)}
+      </Carousel>
 
       <Container padding={5}>
         <Grid container spacing={5}>
