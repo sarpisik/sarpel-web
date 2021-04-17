@@ -47,11 +47,12 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "clean": "gatsby clean",
-    "start": "npm run develop",
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "develop": "npm run clean && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
+    "serve": "gatsby serve",
+    "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
