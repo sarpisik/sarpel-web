@@ -1,9 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
-
-import { Helmet } from "react-helmet"
-
-import { getLocalMode, toggleMode } from "./helpers"
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { MODE } from './constants'
+import { getLocalMode, toggleMode } from './helpers'
 
 const DarkModeContext = React.createContext()
 
@@ -12,14 +11,16 @@ export function useDarkMode() {
 }
 
 export function DarkModeProvider(props) {
-  const [mode, setMode] = React.useState(getLocalMode(props.mode))
+  const [mode, setMode] = React.useState(
+    getLocalMode(props.mode === MODE.browser)
+  )
 
   const handleDarkModeToggle = React.useCallback(() => {
     setMode(toggleMode(mode))
   }, [mode])
 
   React.useEffect(() => {
-    localStorage.setItem("mode", mode)
+    localStorage.setItem('mode', mode)
   }, [mode])
 
   return (
@@ -38,5 +39,5 @@ export function DarkModeProvider(props) {
 }
 
 DarkModeProvider.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 }

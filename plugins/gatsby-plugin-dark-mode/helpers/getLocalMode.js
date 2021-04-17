@@ -1,8 +1,20 @@
-import { MODE } from "../constants"
+export default function getLocalMode(isBrowser) {
+  const localMode = isBrowser && getStoredMode()
 
-export default function getLocalMode(mode) {
-  const isBrowser = mode === MODE.browser
-  const localeMode = isBrowser && window.localStorage.getItem("mode")
+  if (localMode) return localMode
 
-  return localeMode ? localeMode : "dark"
+  const deviceModeDark = isBrowser && isDeviceModeDark()
+
+  return deviceModeDark ? 'dark' : 'light'
+}
+
+function getStoredMode() {
+  return window.localStorage.getItem('mode')
+}
+
+function isDeviceModeDark() {
+  return (
+    window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  )
 }
