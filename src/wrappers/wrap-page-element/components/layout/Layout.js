@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core'
+import Box from '@material-ui/core/Box/Box'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Helmet } from 'react-helmet'
