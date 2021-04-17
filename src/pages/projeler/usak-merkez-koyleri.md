@@ -3,7 +3,7 @@ templateKey: project-page
 title: uşak merkez köyleri
 location: uşak
 status: finished
-date: 2021-03-23T09:56:37.581Z
+date: 2020-03-31T09:56:37.581Z
 description: Banaz, Hasan Köy, Eşme, Saraycık yer altı elektrik nakil hatlarının
   bakım ve montajı.
 featuredpost: false
