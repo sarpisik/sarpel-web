@@ -35,7 +35,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY", locale: "tr")
+        date(formatString: "MMMM, YYYY", locale: "tr")
         title
         status
         location

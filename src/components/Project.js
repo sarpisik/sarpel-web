@@ -63,7 +63,7 @@ export default () => (
               frontmatter {
                 title
                 templateKey
-                date(formatString: "MMMM DD, YYYY", locale: "tr")
+                date(formatString: "MMMM, YYYY", locale: "tr")
                 featuredpost
                 featuredimage {
                   childImageSharp {
