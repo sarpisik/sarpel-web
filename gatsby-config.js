@@ -133,11 +133,7 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`
       }
     },
+    'gatsby-plugin-webpack-bundle-analyzer',
     'gatsby-plugin-netlify' // make sure to keep it last in the array
   ]
-    .concat(
-      process.env.NODE_ENV !== 'production' &&
-        'gatsby-plugin-webpack-bundle-analyzer'
-    )
-    .filter(Boolean)
 }
