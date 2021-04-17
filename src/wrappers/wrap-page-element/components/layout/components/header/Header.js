@@ -1,5 +1,4 @@
-import AppBar from '@material-ui/core/AppBar/AppBar'
-import Switch from '@material-ui/core/Switch/Switch'
+import { AppBar, Switch } from '@material-ui/core'
 import { useDarkMode } from '@plugins/gatsby-plugin-dark-mode/DarkModeProvider'
 import React from 'react'
 import { Toolbar } from './components'
