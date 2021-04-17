@@ -2,11 +2,11 @@ import { Caption } from '@components/caption'
 import { Container } from '@components/container'
 import { ImageContainer } from '@components/image-container'
 import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
-import { Section } from '@components/section'
-import Grid from '@material-ui/core/Grid'
-import React from 'react'
 import Project from '@components/Project'
+import { Section } from '@components/section'
 import { SEO } from '@components/seo'
+import { Grid } from '@material-ui/core'
+import React from 'react'
 
 export const ProjectsPageTemplate = ({ banner, title }) => {
   return (

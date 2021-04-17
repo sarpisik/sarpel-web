@@ -1,5 +1,5 @@
 import { Box, Link } from '@material-ui/core'
-import MailIcon from '@material-ui/icons/Mail'
+import { Mail as MailIcon } from '@material-ui/icons'
 import React from 'react'
 
 const ICON_STYLE = { fontSize: 40 }

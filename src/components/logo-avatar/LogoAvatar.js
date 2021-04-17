@@ -1,5 +1,5 @@
-import Avatar from '@material-ui/core/Avatar/Avatar'
-import withStyles from '@material-ui/core/styles/withStyles'
+import { Avatar } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
 import React from 'react'
 
 const StyledAvatar = withStyles(theme => ({

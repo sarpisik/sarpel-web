@@ -1,9 +1,8 @@
-import Box from '@material-ui/core/Box/Box'
+import { Box } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Footer, Header, LinearProgress, Navbar } from './components'
-import { useStyles } from './styles'
+import { Footer, Header, LinearProgress, Main, Navbar } from './components'
 
 export const Layout = ({ children, location }) => (
   <>
@@ -17,7 +16,7 @@ export const Layout = ({ children, location }) => (
           <>
             <Header />
             <Navbar />
-            <main className={useStyles().content}>{children}</main>
+            <Main>{children}</Main>
             <Footer />
           </>
         )

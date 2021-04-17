@@ -1,5 +1,5 @@
 import { withStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
+import { Typography } from '@material-ui/core'
 
 const TypographyCapitalized = withStyles({
   root: { textTransform: 'capitalize' }

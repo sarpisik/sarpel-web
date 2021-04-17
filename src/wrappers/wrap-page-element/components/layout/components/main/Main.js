@@ -1,22 +1,17 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Box } from "@material-ui/core"
-import { withStyles } from "@material-ui/core/styles"
+import { Box } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
 
-const StyledBox = withStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    padding: theme.spacing(10, 0),
-    display: "flex",
-    flexDirection: "column",
-  },
-}))(Box)
+const StyledBox = withStyles({
+  root: { height: '100%' }
+})(Box)
 
-export default function Main({ children }) {
-  return <StyledBox component="main">{children}</StyledBox>
+export default function Main(props) {
+  return <StyledBox component="main" {...props} />
 }
 
 Main.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }

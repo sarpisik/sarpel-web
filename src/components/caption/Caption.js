@@ -1,6 +1,5 @@
-import Box from '@material-ui/core/Box'
+import { Box, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
 import React from 'react'
 
 const StyledCaption = withStyles(theme => ({

@@ -5,7 +5,7 @@ import { ImageContainer } from '@components/image-container'
 import { Map } from '@components/map'
 import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
 import { SEO } from '@components/seo'
-import Grid from '@material-ui/core/Grid'
+import { Grid } from '@material-ui/core'
 import React from 'react'
 
 export function ContactPageTemplate(props) {

@@ -1,7 +1,9 @@
-import HomeIcon from '@material-ui/icons/Home'
-import BusinessIcon from '@material-ui/icons/Business'
-import ExploreIcon from '@material-ui/icons/Explore'
-import WorkIcon from '@material-ui/icons/Work'
+import {
+  Home as HomeIcon,
+  Business as BusinessIcon,
+  Explore as ExploreIcon,
+  Work as WorkIcon
+} from '@material-ui/icons'
 
 const ICONS = {
   home: HomeIcon,

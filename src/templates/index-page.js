@@ -1,8 +1,7 @@
+import { IndexPageTemplate } from '@components/IndexPageTemplate'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-
-import { IndexPageTemplate } from '@components/IndexPageTemplate'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark

@@ -1,5 +1,5 @@
 import React from 'react'
-import MuiToolbar from '@material-ui/core/Toolbar'
+import { Toolbar as MuiToolbar } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 const StyledToolbar = withStyles({

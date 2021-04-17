@@ -1,12 +1,12 @@
 import { Section, SectionCardContainer } from '@components/section'
-import Typography from '@material-ui/core/Typography'
-import React from 'react'
+import { Link, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import Link from '@material-ui/core/Link'
-
-import NavigationIcon from '@material-ui/icons/Navigation'
-import PhoneInTalkIcon from '@material-ui/icons/PhoneInTalk'
-import EmailIcon from '@material-ui/icons/Email'
+import {
+  Email as EmailIcon,
+  Navigation as NavigationIcon,
+  PhoneInTalk as PhoneInTalkIcon
+} from '@material-ui/icons'
+import React from 'react'
 
 const ICON_SIZE = { fontSize: 80 },
   CENTER = { textAlign: 'center' },

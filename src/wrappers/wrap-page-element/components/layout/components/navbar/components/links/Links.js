@@ -1,5 +1,5 @@
 import { Link } from '@components/link'
-import Box from '@material-ui/core/Box'
+import { Box } from '@material-ui/core'
 import { useCompanyMetadata } from '@hooks/use-company-metadata'
 import React from 'react'
 import { getIcon } from '../../icons'

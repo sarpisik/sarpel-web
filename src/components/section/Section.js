@@ -1,7 +1,6 @@
-import Grid from '@material-ui/core/Grid'
-import React from 'react'
 import TypographyBold from '@components/TypographyBold'
-import Box from '@material-ui/core/Box'
+import { Box, Grid } from '@material-ui/core'
+import React from 'react'
 
 export function SectionContainer(props) {
   return <Grid container {...props} />

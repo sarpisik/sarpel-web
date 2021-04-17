@@ -7,15 +7,14 @@ import {
   SectionCardContainer,
   SectionSubTitle
 } from '@components/section'
-import Box from '@material-ui/core/Box'
-import CardContent from '@material-ui/core/CardContent'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import EcoIcon from '@material-ui/icons/Eco'
-import GroupIcon from '@material-ui/icons/Group'
-import HowToRegIcon from '@material-ui/icons/HowToReg'
-import StarIcon from '@material-ui/icons/Star'
-import TurnedInIcon from '@material-ui/icons/TurnedIn'
+import { Box, CardContent, Grid, Typography } from '@material-ui/core'
+import {
+  Eco as EcoIcon,
+  Group as GroupIcon,
+  HowToReg as HowToRegIcon,
+  Star as StarIcon,
+  TurnedIn as TurnedInIcon
+} from '@material-ui/icons'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Carousel from 'react-material-ui-carousel'

@@ -1,4 +1,4 @@
-import Card from '@material-ui/core/Card'
+import { Card } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 
 const CardWithHeight = withStyles({
