@@ -7,7 +7,7 @@ import {
   PhoneInTalk as PhoneInTalkIcon
 } from '@material-ui/icons'
 import React from 'react'
-import { StyledDynamicColor } from './lib/styled-dynamic-color'
+import { StyledDynamicColor } from './lib'
 
 const ICON_SIZE = { fontSize: 80 },
   CENTER = { textAlign: 'center' },
