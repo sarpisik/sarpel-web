@@ -1,11 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import CssBaseline from "@material-ui/core/CssBaseline"
-import { ThemeProvider as TP } from "@material-ui/core/styles"
+import { CssBaseline } from '@material-ui/core'
+import { MuiThemeProvider as TP } from '@material-ui/core/styles'
 
-import { useDarkMode } from "../gatsby-plugin-dark-mode/DarkModeProvider"
-import { getThemeByName } from "./themes"
+import { useDarkMode } from '../gatsby-plugin-dark-mode/DarkModeProvider'
+import { getThemeByName } from './themes'
 
 export default function ThemeProvider(props) {
   const { mode } = useDarkMode()
@@ -19,5 +19,5 @@ export default function ThemeProvider(props) {
 }
 
 ThemeProvider.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 }
