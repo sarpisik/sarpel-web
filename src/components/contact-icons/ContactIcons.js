@@ -7,31 +7,34 @@ import {
   PhoneInTalk as PhoneInTalkIcon
 } from '@material-ui/icons'
 import React from 'react'
+import { StyledDynamicColor } from './lib/styled-dynamic-color'
 
 const ICON_SIZE = { fontSize: 80 },
   CENTER = { textAlign: 'center' },
   StyledSection = withStyles(theme => ({
     root: { color: theme.palette.primary.main, fontWeight: 'bold' }
-  }))(Section)
+  }))(Section),
+  StyledBoldTypography = StyledDynamicColor(BoldTypography),
+  StyledLink = StyledDynamicColor(Link)
 
 export function ContactIcons({ address, phones, email, ...rest }) {
   return (
     <StyledSection {...rest}>
       <IconContainer>
         <NavigationIcon style={ICON_SIZE} />
-        <BoldTypography>{address}</BoldTypography>
+        <StyledBoldTypography>{address}</StyledBoldTypography>
       </IconContainer>
       <IconContainer>
         <PhoneInTalkIcon style={ICON_SIZE} />
         {phones.map(({ phone }) => (
-          <BoldTypography key={phone}>{phone}</BoldTypography>
+          <StyledBoldTypography key={phone}>{phone}</StyledBoldTypography>
         ))}
       </IconContainer>
       <IconContainer>
         <EmailIcon style={ICON_SIZE} />
-        <Link href={`mailto:${email}`} display="block" color="initial">
+        <StyledLink href={`mailto:${email}`} display="block" color="initial">
           {email}
-        </Link>
+        </StyledLink>
       </IconContainer>
     </StyledSection>
   )
