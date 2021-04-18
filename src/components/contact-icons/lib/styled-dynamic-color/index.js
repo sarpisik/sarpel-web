@@ -1,1 +1,1 @@
-export * from './StyledDynamicColor'
+export * from './styledDynamicColor'
