@@ -25,3 +25,5 @@ export function Caption(props) {
     </StyledCaption>
   )
 }
+
+Caption.propTypes = Typography.propTypes

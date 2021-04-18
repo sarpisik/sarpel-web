@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import React from 'react'
 import { ContactPageTemplate } from '../../templates/contact-page'
@@ -12,6 +13,15 @@ export default function ContactPage({ data }) {
       title="İletişim"
     />
   )
+}
+
+ContactPage.propTypes = {
+  data: PropTypes.shape({
+    file: ContactPageTemplate.propTypes.banner.image,
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object
+    })
+  })
 }
 
 export const pageQuery = graphql`

@@ -6,6 +6,7 @@ import { Map } from '@components/map'
 import PreviewCompatibleImage from '@components/PreviewCompatibleImage'
 import { SEO } from '@components/seo'
 import { Grid } from '@material-ui/core'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export function ContactPageTemplate(props) {
@@ -31,4 +32,10 @@ export function ContactPageTemplate(props) {
       </Container>
     </React.Fragment>
   )
+}
+
+ContactPageTemplate.propTypes = {
+  banner: PreviewCompatibleImage.propTypes.imageInfo,
+  title: PropTypes.string.isRequired,
+  ...ContactIcons.propTypes
 }
