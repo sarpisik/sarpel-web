@@ -34,7 +34,7 @@ export const projectsPageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { order: DESC, fields: [frontmatter___startDate] }
       filter: { frontmatter: { templateKey: { eq: "project-page" } } }
     ) {
       edges {
@@ -47,7 +47,8 @@ export const projectsPageQuery = graphql`
           frontmatter {
             title
             templateKey
-            date(formatString: "MMMM, YYYY", locale: "tr")
+            startDate(formatString: "MMMM, YYYY", locale: "tr")
+            endDate(formatString: "MMMM, YYYY", locale: "tr")
             featuredpost
             featuredimage {
               childImageSharp {

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import CardWithMedia from './CardWithMedia'
 import { SectionCardContainer, SectionSubTitle } from './section'
+import TypographyBold from './TypographyBold'
 
 const STYLE_CAPITALIZED = { textTransform: 'capitalize' }
 
@@ -18,8 +19,14 @@ export function Project({ projects }) {
           <Link style={STYLE_CAPITALIZED} to={project.fields.slug}>
             {project.frontmatter.title}
           </Link>
-          <span> &bull; </span>
-          <span>{project.frontmatter.date}</span>
+          <br />
+          <DateTypography>{project.frontmatter.startDate}</DateTypography>
+          {project.frontmatter.endDate && (
+            <>
+              &nbsp;-&nbsp;
+              <DateTypography>{project.frontmatter.endDate}</DateTypography>
+            </>
+          )}
         </p>
         <Typography variant="body1" color="initial" align="justify">
           {project.excerpt}
@@ -34,4 +41,8 @@ export function Project({ projects }) {
 
 Project.propTypes = {
   projects: PropTypes.array
+}
+
+function DateTypography(props) {
+  return <TypographyBold variant="span" {...props} />
 }
