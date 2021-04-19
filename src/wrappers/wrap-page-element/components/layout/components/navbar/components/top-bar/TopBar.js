@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Toolbar } from '@components/toolbar'
 import { AppBar, Hidden, IconButton } from '@material-ui/core'
 import { Menu as MenuIcon } from '@material-ui/icons'
@@ -34,4 +35,9 @@ export function TopBar({ className = '', onSidebarOpen }) {
       </Toolbar>
     </AppBar>
   )
+}
+
+TopBar.propTypes = {
+  className: PropTypes.string,
+  onSidebarOpen: PropTypes.func.isRequired
 }

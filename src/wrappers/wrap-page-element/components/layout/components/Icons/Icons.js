@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Box, Link } from '@material-ui/core'
 import { Mail as MailIcon } from '@material-ui/icons'
 import React from 'react'
@@ -14,4 +15,8 @@ export default function Icons(props) {
       </Link>
     </Box>
   )
+}
+
+Icons.propTypes = {
+  email: PropTypes.string.isRequired
 }

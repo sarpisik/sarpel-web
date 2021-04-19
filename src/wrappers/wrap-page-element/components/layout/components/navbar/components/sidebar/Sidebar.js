@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Link } from '@components/link'
 import { useCompanyMetadata } from '@hooks/use-company-metadata'
 import { useGlobalMetadata } from '@hooks/use-global-metadata'
@@ -72,4 +73,10 @@ export function Sidebar(props) {
       </div>
     </Drawer>
   )
+}
+
+Sidebar.propTypes = {
+  className: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired
 }
