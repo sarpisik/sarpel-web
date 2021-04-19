@@ -1,26 +1,18 @@
-import { useTheme } from '@material-ui/core/styles'
 import { useMediaQuery } from '@material-ui/core'
 import React from 'react'
 import { Sidebar, TopBar } from './components'
+import { MEDIA_QUERY_OPTIONS } from './contants'
+import { setBreakpoint, toggleBool } from './helpers'
 
-export const Navbar = () => {
-  const [openSidebar, setOpenSidebar] = React.useState(false),
-    theme = useTheme(),
-    isDesktop = useMediaQuery(theme.breakpoints.up('lg'), {
-      defaultMatches: true
-    }),
-    shouldOpenSidebar = isDesktop ? false : openSidebar,
-    handleSidebarOpen = () => {
-      setOpenSidebar(true)
-    },
-    handleSidebarClose = () => {
-      setOpenSidebar(false)
-    }
+export function Navbar() {
+  const [openSidebar, toggleSidebar] = React.useReducer(toggleBool, false),
+    isDesktop = useMediaQuery(setBreakpoint, MEDIA_QUERY_OPTIONS),
+    shouldOpenSidebar = isDesktop ? false : openSidebar
 
   return (
     <>
-      <TopBar onSidebarOpen={handleSidebarOpen} />
-      <Sidebar onClose={handleSidebarClose} open={shouldOpenSidebar} />
+      <TopBar onSidebarOpen={toggleSidebar} />
+      <Sidebar onClose={toggleSidebar} open={shouldOpenSidebar} />
     </>
   )
 }
