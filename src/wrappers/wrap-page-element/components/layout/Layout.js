@@ -1,30 +1,43 @@
-import { Box } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Helmet } from 'react-helmet'
-import { Footer, Header, LinearProgress, Main, Navbar } from './components'
+import {
+  Footer,
+  Header,
+  Helmet,
+  LinearProgress,
+  Main,
+  Navbar,
+  Wrapper
+} from './components'
 
-export const Layout = ({ children, location }) => (
-  <>
-    <Helmet htmlAttributes={{ lang: 'tr' }} />
-    <Box display="flex" flexDirection="column" minHeight="100vh">
-      {
-        // https://github.com/gatsbyjs/gatsby/issues/13867#issuecomment-534117748
-        location.pathname.includes('offline-plugin-app-shell-fallback') ? (
-          <LinearProgress />
-        ) : (
-          <>
-            <Header />
-            <Navbar />
-            <Main>{children}</Main>
-            <Footer />
-          </>
-        )
-      }
-    </Box>
-  </>
-)
+export function Layout({ children, location }) {
+  return (
+    <>
+      <Helmet />
+      <Wrapper>
+        {
+          // https://github.com/gatsbyjs/gatsby/issues/13867#issuecomment-534117748
+          location.pathname.includes('offline-plugin-app-shell-fallback') ? (
+            <LinearProgress />
+          ) : (
+            <>
+              <Header />
+              <Navbar />
+              <Main>{children}</Main>
+              <Footer />
+            </>
+          )
+        }
+      </Wrapper>
+    </>
+  )
+}
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.shape({
+      includes: PropTypes.func
+    })
+  }).isRequired
 }
