@@ -99,7 +99,7 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
-      options: { id: 'G-R5CTWD743S' }
+      options: { trackingId: 'G-R5CTWD743S' }
     },
     {
       resolve: 'gatsby-plugin-google-tagmanager',
