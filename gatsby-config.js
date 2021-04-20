@@ -98,10 +98,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: { id: 'G-R5CTWD743S' }
+    },
+    {
       resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: 'GTM-M2397PL'
-      }
+      options: { id: 'GTM-M2397PL' }
     },
     {
       resolve: 'gatsby-plugin-robots-txt',
