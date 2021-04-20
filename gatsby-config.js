@@ -98,6 +98,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-M2397PL'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         policy: [
