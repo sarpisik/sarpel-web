@@ -9,6 +9,10 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-preact`,
+    {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: { trackingIds: ['G-R5CTWD743S'] }
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-alias-imports',
@@ -96,10 +100,6 @@ module.exports = {
       options: {
         domains: ['https://maps.gstatic.com/']
       }
-    },
-    {
-      resolve: 'gatsby-plugin-google-gtag',
-      options: { trackingIds: ['G-R5CTWD743S'] }
     },
     {
       resolve: 'gatsby-plugin-robots-txt',
